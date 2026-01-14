@@ -1,0 +1,2 @@
+# Goverment_Project--Live_Civil_Report
+ The City Live Report Card is an official government-backed digital governance platform that provides a real-time, ward-wise performance dashboard of all civic services in a city.  It acts as a daily-updated public accountability system, enabling citizens, administrators, and policymakers to track service delivery, efficiency, and responsiveness at the grassroots level.
