@@ -1,4 +1,4 @@
-# 📊 Seva Meter (सेवा मीटर)
+# 📊 Maja Umred
 ### National-Scale E-Governance Initiative for Urban India
 
 [![License](https://img.shields.io/badge/License-View-blue.svg)](LICENSE)
@@ -25,7 +25,7 @@
 
 ## 📌 Overview
 
-The **Seva Meter** is an official government-backed digital governance platform that provides a real-time, ward-wise performance dashboard of all civic services across Indian cities.
+The **Maja Umred** is an official government-backed digital governance platform that provides a real-time, ward-wise performance dashboard of all civic services across Indian cities.
 
 ### Key Highlights
 - ✅ **Real-time monitoring** of civic services at ward level

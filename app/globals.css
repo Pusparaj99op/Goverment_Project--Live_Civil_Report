@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --gov-orange: #FF9933;
+    --gov-white: #FFFFFF;
+    --gov-green: #138808;
+    --gov-blue: #000080;
+    --gov-bg: #f8f9fa;
+    --gov-text: #1a1a1a;
+}
+
+body {
+    color: var(--gov-text);
+    background: var(--gov-bg);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.gov-gradient {
+    background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+    height: 4px;
+    width: 100%;
+}
+
+.ashoka-chakra-spin {
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
