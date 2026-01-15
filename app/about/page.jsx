@@ -46,7 +46,7 @@ export default function AboutPage() {
         { year: '2005', event: 'Computerization of Records' },
         { year: '2015', event: 'Swachh Bharat Abhiyan Adoption' },
         { year: '2020', event: 'E-Governance Portal Launch' },
-        { year: '2026', event: 'Smart City Integration & Maja Umred Platform' },
+        { year: '2026', event: 'Smart City Integration & Majha Umred Platform' },
     ];
 
     return (
@@ -125,7 +125,7 @@ export default function AboutPage() {
                                     The Nagar Parishad administers <strong>13 wards</strong>, serving a population of over 52,000 citizens. Our dedicated team of officials and elected representatives work tirelessly to ensure efficient delivery of civic services including water supply, sanitation, street lighting, road maintenance, and public health initiatives.
                                 </Typography>
                                 <Typography variant="body1" sx={{ lineHeight: 1.8, textAlign: 'justify' }}>
-                                    Under the leadership of the current administration, we have embraced digital governance through the <strong>"Maja Umred"</strong> platform, enabling real-time complaint tracking, ward performance monitoring, and transparent administration aligned with the vision of Digital India.
+                                    Under the leadership of the current administration, we have embraced digital governance through the <strong>"Majha Umred"</strong> platform, enabling real-time complaint tracking, ward performance monitoring, and transparent administration aligned with the vision of Digital India.
                                 </Typography>
                             </Box>
                         </Paper>

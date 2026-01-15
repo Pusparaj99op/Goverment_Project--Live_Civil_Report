@@ -131,10 +131,10 @@ export default function Navbar() {
                         </Box>
                         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                             <Typography variant="h5" sx={{ fontWeight: 700, color: '#000', lineHeight: 1.1, fontSize: { xs: '1.4rem', md: '1.8rem' } }}>
-                                माजा उमरेड
+                                माझा उमरेड
                             </Typography>
                             <Typography variant="h6" sx={{ fontWeight: 600, color: '#1a4e8e', lineHeight: 1.1, textTransform: 'uppercase', fontSize: { xs: '1rem', md: '1.2rem' } }}>
-                                Maja Umred
+                                Majha Umred
                             </Typography>
                             <Typography variant="body2" sx={{ color: '#555', fontWeight: 500, fontSize: '0.85rem' }}>
                                 Government of Maharashtra
@@ -176,18 +176,86 @@ export default function Navbar() {
                             <Typography variant="caption" sx={{ fontSize: '0.6rem', color: '#666', lineHeight: 1, textAlign: 'center' }}>Hon'ble Minister</Typography>
                         </Box>
 
-                        <Box sx={{ height: '50px', width: '1px', bgcolor: '#eee', mx: 1, display: { xs: 'none', sm: 'block' } }} />
+                        {/* Devendra Fadnavis */}
+                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mx: 0.5 }}>
+                            <Box sx={{
+                                height: '64px', width: '64px', borderRadius: '50%', overflow: 'hidden',
+                                border: '3px solid #f0f0f0', boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                            }}>
+                                <img
+                                    src="/images/devendra.jpeg"
+                                    alt="Devendra Fadnavis"
+                                    style={{ height: '100%', width: '100%', objectFit: 'cover' }}
+                                />
+                            </Box>
+                            <Typography variant="caption" sx={{ fontSize: '0.65rem', fontWeight: 'bold', mt: 0.5, lineHeight: 1.2, textAlign: 'center' }}>Shri Devendra Fadnavis</Typography>
+                            <Typography variant="caption" sx={{ fontSize: '0.6rem', color: '#666', lineHeight: 1, textAlign: 'center' }}>Hon'ble CM</Typography>
+                        </Box>
 
-                        <img
-                            src="/g20.png"
-                            alt="G20 India"
-                            style={{ height: '55px', width: 'auto', objectFit: 'contain', display: { xs: 'none', sm: 'block' } }}
-                        />
-                        <img
-                            src="/swachh_bharat.png"
-                            alt="Swachh Bharat"
-                            style={{ height: '50px', width: 'auto', objectFit: 'contain', display: { xs: 'none', sm: 'block' } }}
-                        />
+                        {/* Rohit Karoo */}
+                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mx: 0.5 }}>
+                            <Box sx={{
+                                height: '64px', width: '64px', borderRadius: '50%', overflow: 'hidden',
+                                border: '3px solid #FF9933', boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                            }}>
+                                <img
+                                    src="/images/rohiy.jpeg"
+                                    alt="Rohit Karoo"
+                                    style={{ height: '100%', width: '100%', objectFit: 'cover' }}
+                                />
+                            </Box>
+                            <Typography variant="caption" sx={{ fontSize: '0.65rem', fontWeight: 'bold', mt: 0.5, lineHeight: 1.2, textAlign: 'center' }}>Rohit Karoo</Typography>
+                            <Typography variant="caption" sx={{ fontSize: '0.6rem', color: '#666', lineHeight: 1, textAlign: 'center' }}>Karhandla Secretary</Typography>
+                        </Box>
+
+                        <Box sx={{ height: '50px', width: '1px', bgcolor: '#ddd', mx: 1.5, display: { xs: 'none', md: 'block' } }} />
+
+                        {/* Government Initiative Logos */}
+                        <Box sx={{
+                            display: { xs: 'none', md: 'flex' },
+                            gap: 1.5,
+                            alignItems: 'center',
+                            bgcolor: 'rgba(255, 153, 51, 0.08)',
+                            borderRadius: 2,
+                            px: 1.5,
+                            py: 0.8,
+                            border: '1px solid rgba(255, 153, 51, 0.2)'
+                        }}>
+                            <Box sx={{
+                                height: '48px',
+                                width: '48px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                bgcolor: '#fff',
+                                borderRadius: '8px',
+                                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                                p: 0.5
+                            }}>
+                                <img
+                                    src="/g20.png"
+                                    alt="G20 India 2023"
+                                    style={{ height: '100%', width: '100%', objectFit: 'contain' }}
+                                />
+                            </Box>
+                            <Box sx={{
+                                height: '48px',
+                                width: '48px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                bgcolor: '#fff',
+                                borderRadius: '8px',
+                                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                                p: 0.5
+                            }}>
+                                <img
+                                    src="/swachh_bharat.png"
+                                    alt="Swachh Bharat Abhiyan"
+                                    style={{ height: '100%', width: '100%', objectFit: 'contain' }}
+                                />
+                            </Box>
+                        </Box>
                     </Box>
                 </Box>
             </Container>

@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 export const metadata = {
-    title: 'Maja Umred - National E-Governance Platform',
+    title: 'Majha Umred - National E-Governance Platform',
     description: 'Ward-wise performance dashboard for Umred',
 }
 

@@ -12,6 +12,10 @@ import TrafficIcon from '@mui/icons-material/Traffic';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import CampaignIcon from '@mui/icons-material/Campaign';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import TrackChangesIcon from '@mui/icons-material/TrackChanges';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import StarIcon from '@mui/icons-material/Star';
 
 export default function Home() {
     // Quick Links with proper routes
@@ -62,13 +66,172 @@ export default function Home() {
         { text: 'Nagpur District', href: 'https://nagpur.gov.in', external: true },
     ];
 
+    // Key Statistics
+    const statistics = [
+        { number: '13', label: 'Wards', color: '#1a4e8e' },
+        { number: '52K+', label: 'Citizens', color: '#138808' },
+        { number: '1000+', label: 'Cases/Month', color: '#FF9933' },
+        { number: '24x7', label: 'Service', color: '#b71c1c' },
+    ];
+
     return (
         <div className="flex flex-col">
+            {/* Hero Section with Government Styling */}
+            <Box sx={{
+                background: 'linear-gradient(135deg, #1a4e8e 0%, #0d2e5a 100%)',
+                color: '#fff',
+                py: { xs: 4, md: 6 },
+                borderBottom: '4px solid #FF9933',
+                position: 'relative',
+                overflow: 'hidden'
+            }}>
+                {/* Decorative Pattern */}
+                <Box sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    opacity: 0.05,
+                    backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+                }} />
+
+                <Container maxWidth="xl">
+                    <Grid container spacing={4} alignItems="center">
+                        {/* Left Section - Title & Info */}
+                        <Grid item xs={12} md={7}>
+                            <Box sx={{ position: 'relative', zIndex: 1 }}>
+                                {/* Government Badge */}
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+                                    <img src="/emblem_new.png" alt="Government Emblem" style={{ height: 60, filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }} />
+                                    <Box>
+                                        <Typography variant="caption" sx={{ color: '#FF9933', fontWeight: 'bold', letterSpacing: 1 }}>
+                                            GOVERNMENT OF MAHARASHTRA
+                                        </Typography>
+                                        <Typography variant="caption" sx={{ display: 'block', opacity: 0.8 }}>
+                                            जिल्हा नागपूर | District Nagpur
+                                        </Typography>
+                                    </Box>
+                                </Box>
+
+                                <Typography variant="h2" sx={{ fontWeight: 'bold', mb: 1, fontSize: { xs: '2rem', md: '3.5rem' }, fontFamily: 'Merriweather, serif', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+                                    माझा उमरेड
+                                </Typography>
+                                <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2, fontSize: { xs: '1.2rem', md: '1.8rem' }, color: '#fff' }}>
+                                    Umred Nagar Parishad
+                                </Typography>
+
+                                <Box sx={{ bgcolor: 'rgba(255,255,255,0.1)', p: 2, borderRadius: 1, borderLeft: '4px solid #FF9933', mb: 3 }}>
+                                    <Typography variant="body1" sx={{ fontSize: { xs: '0.9rem', md: '1.1rem' }, lineHeight: 1.8 }}>
+                                        A <strong>Digital Governance Initiative</strong> under Smart Cities Mission.
+                                        Real-time ward performance monitoring, seamless grievance redressal, and transparent accountability for all citizens.
+                                    </Typography>
+                                </Box>
+
+                                <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                                    <Button
+                                        variant="contained"
+                                        component={Link}
+                                        href="/services"
+                                        size="large"
+                                        sx={{
+                                            bgcolor: '#FF9933',
+                                            color: '#000',
+                                            fontWeight: 'bold',
+                                            px: 4,
+                                            '&:hover': { bgcolor: '#e68a00', transform: 'translateY(-2px)' },
+                                            transition: 'all 0.2s',
+                                            boxShadow: '0 4px 15px rgba(255,153,51,0.4)'
+                                        }}
+                                    >
+                                        📝 File Complaint
+                                    </Button>
+                                    <Button
+                                        variant="contained"
+                                        component={Link}
+                                        href="/dashboard"
+                                        size="large"
+                                        sx={{
+                                            bgcolor: '#138808',
+                                            fontWeight: 'bold',
+                                            px: 4,
+                                            '&:hover': { bgcolor: '#0e6606', transform: 'translateY(-2px)' },
+                                            transition: 'all 0.2s',
+                                            boxShadow: '0 4px 15px rgba(19,136,8,0.4)'
+                                        }}
+                                    >
+                                        📊 View Dashboard
+                                    </Button>
+                                    <Button
+                                        variant="outlined"
+                                        component={Link}
+                                        href="/auth/register"
+                                        size="large"
+                                        sx={{
+                                            borderColor: '#fff',
+                                            color: '#fff',
+                                            fontWeight: 'bold',
+                                            px: 4,
+                                            '&:hover': { bgcolor: 'rgba(255,255,255,0.1)', borderColor: '#FF9933' },
+                                        }}
+                                    >
+                                        Register Now
+                                    </Button>
+                                </Box>
+
+                                {/* Tricolor Bar */}
+                                <Box sx={{ display: 'flex', mt: 4, gap: 0 }}>
+                                    <Box sx={{ width: 80, height: 6, bgcolor: '#FF9933', borderRadius: '3px 0 0 3px' }} />
+                                    <Box sx={{ width: 80, height: 6, bgcolor: '#fff' }} />
+                                    <Box sx={{ width: 80, height: 6, bgcolor: '#138808', borderRadius: '0 3px 3px 0' }} />
+                                </Box>
+                            </Box>
+                        </Grid>
+
+                        {/* Right Section - Stats Cards */}
+                        <Grid item xs={12} md={5}>
+                            <Grid container spacing={2}>
+                                {statistics.map((stat, i) => (
+                                    <Grid item xs={6} key={i}>
+                                        <Paper sx={{
+                                            p: 2,
+                                            textAlign: 'center',
+                                            bgcolor: 'rgba(255,255,255,0.95)',
+                                            borderRadius: 2,
+                                            boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+                                            transition: 'transform 0.2s',
+                                            '&:hover': { transform: 'translateY(-4px)' }
+                                        }}>
+                                            <Typography variant="h3" sx={{ fontWeight: 'bold', color: stat.color, fontSize: { xs: '1.8rem', md: '2.5rem' } }}>
+                                                {stat.number}
+                                            </Typography>
+                                            <Typography variant="body2" sx={{ color: '#666', fontWeight: 500 }}>
+                                                {stat.label}
+                                            </Typography>
+                                        </Paper>
+                                    </Grid>
+                                ))}
+                            </Grid>
+
+                            {/* Quick Contact */}
+                            <Paper sx={{ mt: 2, p: 2, bgcolor: 'rgba(255,255,255,0.1)', borderRadius: 2, border: '1px solid rgba(255,255,255,0.2)' }}>
+                                <Typography variant="subtitle2" sx={{ color: '#FF9933', fontWeight: 'bold', mb: 1 }}>
+                                    📞 Helpline Numbers
+                                </Typography>
+                                <Typography variant="body2" sx={{ color: '#fff' }}>
+                                    Emergency: <strong>112</strong> | Grievance: <strong>07116-222XXX</strong>
+                                </Typography>
+                            </Paper>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+
             {/* News Ticker */}
             <Box sx={{ bgcolor: '#2e2e2e', color: '#fff', py: 0.5, overflow: 'hidden', whiteSpace: 'nowrap', borderBottom: '2px solid #FF9933' }}>
                 <Box sx={{ display: 'inline-flex', alignItems: 'center', animation: 'marquee 30s linear infinite', paddingLeft: '100%' }}>
                     <CampaignIcon fontSize="small" sx={{ mr: 1, color: '#FF9933' }} />
-                    <Typography variant="body2" sx={{ mr: 4 }}>Welcome to Maja Umred E-Governance Portal</Typography>
+                    <Typography variant="body2" sx={{ mr: 4 }}>Welcome to Majha Umred E-Governance Portal</Typography>
 
                     <WaterDropIcon fontSize="small" sx={{ mr: 1, color: '#4fc3f7' }} />
                     <Typography variant="body2" sx={{ mr: 4 }}>Ward No. 4 Water Supply maintenance on 16th Jan</Typography>
@@ -89,6 +252,73 @@ export default function Home() {
             100% { transform: translateX(-100%); }
           }
         `}</style>
+            </Box>
+
+            {/* Mission & Vision Section */}
+            <Box sx={{ bgcolor: '#f5f5f5', py: 4, borderBottom: '1px solid #ddd' }}>
+                <Container maxWidth="xl">
+                    <Grid container spacing={3}>
+                        {/* Vision */}
+                        <Grid item xs={12} md={6}>
+                            <Paper sx={{ height: '100%', overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
+                                <Box sx={{ bgcolor: '#FF9933', color: '#000', p: 2, borderLeft: '5px solid #1a4e8e', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                    <VisibilityIcon />
+                                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Our Vision</Typography>
+                                </Box>
+                                <Box sx={{ p: 3 }}>
+                                    <Box sx={{ bgcolor: '#fff8e1', p: 2, borderLeft: '4px solid #FF9933', mb: 2 }}>
+                                        <Typography variant="body1" sx={{ fontStyle: 'italic', fontWeight: 600, color: '#333' }}>
+                                            "स्वच्छ, सक्षम आणि नागरिक-केंद्रित उमरेड"
+                                        </Typography>
+                                    </Box>
+                                    <Typography variant="body2" sx={{ lineHeight: 1.8, color: '#555' }}>
+                                        To transform Umred into a <strong>model township</strong> that exemplifies sustainable urban development,
+                                        digital governance, and citizen empowerment with 100% digital service delivery by 2030.
+                                    </Typography>
+                                    <Box sx={{ mt: 2 }}>
+                                        {['Clean & Green City by 2030', '100% Digital Service Delivery', 'Zero Pending Grievances'].map((item, i) => (
+                                            <Typography key={i} variant="body2" sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.5 }}>
+                                                <StarIcon fontSize="small" sx={{ color: '#FF9933' }} /> {item}
+                                            </Typography>
+                                        ))}
+                                    </Box>
+                                </Box>
+                            </Paper>
+                        </Grid>
+
+                        {/* Mission */}
+                        <Grid item xs={12} md={6}>
+                            <Paper sx={{ height: '100%', overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
+                                <Box sx={{ bgcolor: '#138808', color: '#fff', p: 2, borderLeft: '5px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                    <TrackChangesIcon />
+                                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Our Mission</Typography>
+                                </Box>
+                                <Box sx={{ p: 3 }}>
+                                    <Box sx={{ bgcolor: '#e8f5e9', p: 2, borderLeft: '4px solid #138808', mb: 2 }}>
+                                        <Typography variant="body1" sx={{ fontStyle: 'italic', fontWeight: 600, color: '#333' }}>
+                                            "सेवा, पारदर्शकता, विकास"
+                                        </Typography>
+                                    </Box>
+                                    <List dense sx={{ py: 0 }}>
+                                        {[
+                                            'Efficient and transparent civic services',
+                                            'Clean drinking water to every household',
+                                            'Hygienic sanitation across all 13 wards',
+                                            'Digital literacy and e-governance promotion',
+                                        ].map((item, i) => (
+                                            <ListItem key={i} sx={{ px: 0, py: 0.3 }}>
+                                                <ListItemIcon sx={{ minWidth: 24 }}>
+                                                    <CheckCircleIcon fontSize="small" sx={{ color: '#138808' }} />
+                                                </ListItemIcon>
+                                                <ListItemText primary={item} primaryTypographyProps={{ fontSize: '0.85rem', color: '#555' }} />
+                                            </ListItem>
+                                        ))}
+                                    </List>
+                                </Box>
+                            </Paper>
+                        </Grid>
+                    </Grid>
+                </Container>
             </Box>
 
             {/* Main Content with 3-Column Layout */}
@@ -213,77 +443,58 @@ export default function Home() {
 
                     {/* Center - Main Content */}
                     <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
-                        {/* Hero Banner */}
-                        <Paper sx={{ p: { xs: 2, md: 4 }, textAlign: 'center', background: 'linear-gradient(135deg, #e8f4fc 0%, #f0f8ff 100%)', mb: 3 }}>
-                            <Typography component="h1" variant="h3" sx={{ fontWeight: 'bold', color: '#000080', fontSize: { xs: '1.8rem', md: '3rem' }, fontFamily: 'Merriweather, serif' }}>
-                                माजा उमरेड
-                            </Typography>
-                            <Typography variant="h5" sx={{ fontWeight: 'bold', color: '#333', mb: 2, fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
-                                Maja Umred Municipal Council
-                            </Typography>
-                            <Typography variant="body1" color="text.secondary" paragraph sx={{ fontSize: { xs: '0.9rem', md: '1rem' } }}>
-                                A Digital Governance Initiative under Smart Cities Mission. Real-time ward performance monitoring, seamless grievance redressal, and transparent accountability.
-                            </Typography>
-                            <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center', gap: 2, flexDirection: { xs: 'column', sm: 'row' } }}>
-                                <Button variant="contained" component={Link} href="/dashboard" size="large" sx={{ bgcolor: '#FF9933', '&:hover': { bgcolor: '#e68a00' }, width: { xs: '100%', sm: 'auto' } }}>
-                                    View Dashboard
-                                </Button>
-                                <Button variant="contained" component={Link} href="/auth/register" size="large" sx={{ bgcolor: '#138808', '&:hover': { bgcolor: '#0e6606' }, width: { xs: '100%', sm: 'auto' } }}>
-                                    Register Now
-                                </Button>
+
+                        {/* Civic Services */}
+                        <Paper sx={{ mb: 3, overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
+                            <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 2, borderLeft: '5px solid #FF9933' }}>
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>🏛️ Civic Services</Typography>
+                            </Box>
+                            <Box sx={{ p: 2 }}>
+                                <Grid container spacing={2}>
+                                    {[
+                                        { title: 'Water Supply', icon: <WaterDropIcon fontSize="large" color="primary" />, desc: 'Real-time water pressure and quality monitoring.' },
+                                        { title: 'Sanitation', icon: <CleaningServicesIcon fontSize="large" color="success" />, desc: 'Garbage collection and cleanliness audits.' },
+                                        { title: 'Public Safety', icon: <SecurityIcon fontSize="large" color="error" />, desc: 'Crime spots and disaster readiness.' },
+                                        { title: 'Roads & Transport', icon: <TrafficIcon fontSize="large" sx={{ color: '#FF9933' }} />, desc: 'Pothole reporting and traffic updates.' },
+                                        { title: 'Health', icon: <LocalHospitalIcon fontSize="large" color="error" />, desc: 'Hospital availability and AQI.' },
+                                        { title: 'Power Supply', icon: <LightbulbIcon fontSize="large" color="warning" />, desc: 'Street light and outage reporting.' },
+                                    ].map((feature, index) => (
+                                        <Grid item key={index} xs={6} sm={4}>
+                                            <Paper sx={{
+                                                p: { xs: 2, md: 3 },
+                                                textAlign: 'center',
+                                                height: '100%',
+                                                transition: '0.2s',
+                                                borderRadius: 0,
+                                                border: '1px solid #eee',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                '&:hover': { transform: 'translateY(-3px)', boxShadow: 2, borderColor: '#FF9933' }
+                                            }}>
+                                                <Box sx={{ mb: 2 }}>{feature.icon}</Box>
+                                                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>{feature.title}</Typography>
+                                                <Typography variant="caption" color="text.secondary" sx={{ display: { xs: 'none', sm: 'block' } }}>{feature.desc}</Typography>
+                                            </Paper>
+                                        </Grid>
+                                    ))}
+                                </Grid>
                             </Box>
                         </Paper>
 
-                        {/* Civic Services */}
-                        <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 3, color: '#000080', borderBottom: '3px solid #FF9933', pb: 1, display: 'inline-block', fontSize: { xs: '1.5rem', md: '1.5rem' } }}>
-                            Civic Services
-                        </Typography>
-                        <Grid container spacing={2}>
-                            {[
-                                { title: 'Water Supply', icon: <WaterDropIcon fontSize="large" color="primary" />, desc: 'Real-time water pressure and quality monitoring.' },
-                                { title: 'Sanitation', icon: <CleaningServicesIcon fontSize="large" color="success" />, desc: 'Garbage collection and cleanliness audits.' },
-                                { title: 'Public Safety', icon: <SecurityIcon fontSize="large" color="error" />, desc: 'Crime spots and disaster readiness.' },
-                                { title: 'Roads & Transport', icon: <TrafficIcon fontSize="large" sx={{ color: '#FF9933' }} />, desc: 'Pothole reporting and traffic updates.' },
-                                { title: 'Health', icon: <LocalHospitalIcon fontSize="large" color="error" />, desc: 'Hospital availability and AQI.' },
-                                { title: 'Power Supply', icon: <LightbulbIcon fontSize="large" color="warning" />, desc: 'Street light and outage reporting.' },
-                            ].map((feature, index) => (
-                                <Grid item key={index} xs={6} sm={4}>
-                                    <Paper sx={{
-                                        p: { xs: 2, md: 3 },
-                                        textAlign: 'center',
-                                        height: '100%',
-                                        transition: '0.2s',
-                                        borderRadius: 0,
-                                        border: '1px solid #eee',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'center',
-                                        '&:hover': { transform: 'translateY(-3px)', boxShadow: 2, borderColor: '#FF9933' }
-                                    }}>
-                                        <Box sx={{ mb: 2 }}>{feature.icon}</Box>
-                                        <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>{feature.title}</Typography>
-                                        <Typography variant="caption" color="text.secondary" sx={{ display: { xs: 'none', sm: 'block' } }}>{feature.desc}</Typography>
-                                    </Paper>
-                                </Grid>
-                            ))}
-                        </Grid>
-
-                        {/* Mini Ward Map - Moved to Center Column */}
-                        <Paper sx={{ mt: 4, p: 2, border: '1px solid #eee', borderRadius: 0, '&:hover': { boxShadow: 3 } }}>
+                        {/* Mini Ward Map */}
+                        <Paper sx={{ p: 2, border: '1px solid #eee', borderRadius: 0, boxShadow: 3, '&:hover': { boxShadow: 4 } }}>
                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2, borderBottom: '2px solid #FF9933', pb: 1 }}>
                                 <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#000080' }}>
-                                    🗺️ Ward Map
+                                    🗺️ Ward Map - Umred
                                 </Typography>
                                 <Typography variant="caption" sx={{ color: '#666' }}>
-                                    Interactive Map
+                                    13 Administrative Wards
                                 </Typography>
                             </Box>
 
                             <Box sx={{ position: 'relative', width: '100%', bgcolor: '#e8f4fc', borderRadius: 1, overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
                                 <svg viewBox="0 0 600 500" style={{ width: '100%', maxWidth: 400, height: 'auto' }}>
-                                    {/* Background - Transparent in this view to blend with box */}
-                                    {/* Map Title - Removed for compact view */}
-
                                     {/* Ward 1 */}
                                     <polygon points="50,80 150,60 180,120 120,160 40,140" fill="#FF6B6B" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
                                         <title>Ward 1</title>
@@ -365,7 +576,7 @@ export default function Home() {
                             </Box>
 
                             <Box sx={{ mt: 2, pt: 1, borderTop: '1px solid #eee' }}>
-                                <Typography variant="caption" sx={{ fontWeight: 'bold', mb: 1, display: 'block' }}>Key:</Typography>
+                                <Typography variant="caption" sx={{ fontWeight: 'bold', mb: 1, display: 'block' }}>Ward Legend:</Typography>
                                 <Grid container spacing={0.5}>
                                     {[
                                         { ward: 1, color: '#FF6B6B' }, { ward: 2, color: '#4ECDC4' }, { ward: 3, color: '#45B7D1' },
@@ -389,7 +600,7 @@ export default function Home() {
                     {/* Right Sidebar - Officials & News */}
                     <Grid item xs={12} md={3} order={{ xs: 3, md: 3 }}>
                         {/* Officials Section */}
-                        <Paper sx={{ overflow: 'hidden', mb: 3 }}>
+                        <Paper sx={{ overflow: 'hidden', mb: 3, boxShadow: 3, border: '1px solid #ddd' }}>
                             <Box sx={{ bgcolor: '#b71c1c', color: '#fff', p: 2 }}>
                                 <Typography variant="h6" sx={{ fontWeight: 'bold' }}>👤 Our Leadership</Typography>
                             </Box>
@@ -414,7 +625,7 @@ export default function Home() {
                                         </Typography>
 
                                         <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#FF9933', mb: 1 }}>
-                                            @bjp4india 🇮🇳 - भाजपा
+                                            Municipal President
                                         </Typography>
 
                                         <Typography variant="body2" sx={{ fontStyle: 'italic', mb: 2, color: '#555' }}>
@@ -436,11 +647,35 @@ export default function Home() {
                                         </Box>
                                     </Box>
                                 </Card>
+
+                                {/* Rohit Karoo - Karhandla Secretary */}
+                                <Card sx={{ borderRadius: 0, borderTop: '1px solid #eee' }}>
+                                    <Box sx={{ p: 2, textAlign: 'center', bgcolor: '#f9f9f9' }}>
+                                        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
+                                            <CardMedia
+                                                component="img"
+                                                image="/images/rohiy.jpeg"
+                                                alt="Rohit Karoo"
+                                                sx={{ width: 80, height: 80, borderRadius: '50%', border: '3px solid #FF9933', boxShadow: 2, objectFit: 'cover' }}
+                                            />
+                                        </Box>
+
+                                        <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#000080' }}>
+                                            रोहित करू
+                                        </Typography>
+                                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#FF9933' }}>
+                                            Rohit Karoo
+                                        </Typography>
+                                        <Typography variant="caption" sx={{ color: '#666', display: 'block', mt: 0.5 }}>
+                                            Karhandla Secretary
+                                        </Typography>
+                                    </Box>
+                                </Card>
                             </Box>
                         </Paper>
 
                         {/* What's New */}
-                        <Paper sx={{ overflow: 'hidden', borderRadius: 0, border: '1px solid #ddd' }}>
+                        <Paper sx={{ overflow: 'hidden', borderRadius: 0, border: '1px solid #ddd', boxShadow: 3 }}>
                             <Box sx={{ bgcolor: '#FF9933', color: '#000', p: 2, borderLeft: '4px solid #138808' }}>
                                 <Typography variant="h6" sx={{ fontWeight: 'bold' }}>📰 What's New</Typography>
                             </Box>

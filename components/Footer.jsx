@@ -12,7 +12,7 @@ export default function Footer() {
                             Information
                         </Typography>
                         <Box display="flex" flexDirection="column" gap={1}>
-                            <Link href="#" color="inherit" underline="hover">About Maja Umred</Link>
+                            <Link href="#" color="inherit" underline="hover">About Majha Umred</Link>
                             <Link href="#" color="inherit" underline="hover">Ward Statistics</Link>
                             <Link href="#" color="inherit" underline="hover">Performance Reports</Link>
                             <Link href="#" color="inherit" underline="hover">Citizens Charter</Link>
@@ -61,7 +61,7 @@ export default function Footer() {
             <Box sx={{ bgcolor: '#000', py: 3, textAlign: 'center', borderTop: '1px solid #333' }}>
                 <Container maxWidth="lg">
                     <Typography variant="body2" sx={{ mb: 1 }}>
-                        Website Content Managed by <strong>Maja Umred Administration</strong>.
+                        Website Content Managed by <strong>Majha Umred Administration</strong>.
                     </Typography>
                     <Typography variant="caption" display="block" color="grey.500">
                         Designed, Developed and Hosted by <span style={{ color: '#fff' }}>National Informatics Centre (NIC)</span>. <br />
