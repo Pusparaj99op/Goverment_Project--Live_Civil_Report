@@ -14,15 +14,25 @@ import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import CampaignIcon from '@mui/icons-material/Campaign';
 
 export default function Home() {
+    // Quick Links with proper routes
     const quickLinks = [
-        'File a Complaint',
-        'Track Complaint Status',
-        'Ward Performance',
-        'Tax Payment',
-        'Water Bill',
-        'Property Tax',
-        'Building Permissions',
-        'Trade License',
+        { text: 'File a Complaint', href: '/services', icon: '📝' },
+        { text: 'Track Complaint Status', href: '/dashboard', icon: '🔍' },
+        { text: 'Ward Performance', href: '/dashboard', icon: '📊' },
+        { text: 'Tax Payment', href: '/under-construction', icon: '💰' },
+        { text: 'Water Bill', href: '/under-construction', icon: '💧' },
+        { text: 'Property Tax', href: '/under-construction', icon: '🏠' },
+        { text: 'Building Permissions', href: '/under-construction', icon: '🏗️' },
+        { text: 'Trade License', href: '/under-construction', icon: '📜' },
+    ];
+
+    // Citizen Services
+    const citizenServices = [
+        { text: 'Birth Certificate', href: '/under-construction', icon: '👶' },
+        { text: 'Death Certificate', href: '/under-construction', icon: '📄' },
+        { text: 'Marriage Registration', href: '/under-construction', icon: '💍' },
+        { text: 'Ration Card', href: '/under-construction', icon: '🍚' },
+        { text: 'Domicile Certificate', href: '/under-construction', icon: '🏛️' },
     ];
 
     const whatsNew = [
@@ -32,12 +42,24 @@ export default function Home() {
         { date: '08 Jan 2026', text: 'Pulse Polio drive scheduled for 19th January.' },
     ];
 
+    // Downloads with PDF links
     const downloads = [
-        'Birth Certificate Application',
-        'Death Certificate Application',
-        'Trade License Form',
-        'Building Permission Form',
-        'NOC Application',
+        { text: 'Birth Certificate Application', href: '/under-construction' },
+        { text: 'Death Certificate Application', href: '/under-construction' },
+        { text: 'Trade License Form', href: '/under-construction' },
+        { text: 'Building Permission Form', href: '/under-construction' },
+        { text: 'NOC Application', href: '/under-construction' },
+        { text: 'Water Connection Form', href: '/under-construction' },
+        { text: 'Property Tax Form', href: '/under-construction' },
+    ];
+
+    // Important Links
+    const importantLinks = [
+        { text: 'Maharashtra Govt.', href: 'https://maharashtra.gov.in', external: true },
+        { text: 'India.gov.in', href: 'https://india.gov.in', external: true },
+        { text: 'RTI Online', href: 'https://rtionline.gov.in', external: true },
+        { text: 'Digital India', href: 'https://digitalindia.gov.in', external: true },
+        { text: 'Nagpur District', href: 'https://nagpur.gov.in', external: true },
     ];
 
     return (
@@ -73,43 +95,127 @@ export default function Home() {
             <Container maxWidth="xl" sx={{ py: { xs: 2, md: 4 } }}>
                 <Grid container spacing={3} direction={{ xs: 'column', md: 'row' }}>
 
-                    {/* Left Sidebar - Quick Links */}
+                    {/* Left Sidebar - Government Style */}
                     <Grid item xs={12} md={3} order={{ xs: 2, md: 1 }}>
-                        <Paper sx={{ bgcolor: '#1a4e8e', color: '#fff', overflow: 'hidden', borderRadius: 0 }}>
-                            <Box sx={{ bgcolor: '#0d3a6e', p: 2, borderLeft: '4px solid #FF9933' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>⚡ Quick Links</Typography>
+
+                        {/* Quick Links Section */}
+                        <Paper sx={{ bgcolor: '#fff', overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
+                            <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 1.5, borderLeft: '4px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>⚡ Quick Links</Typography>
                             </Box>
                             <List dense sx={{ py: 0 }}>
                                 {quickLinks.map((link, i) => (
-                                    <ListItem key={i} component={Link} href="#" sx={{ color: '#fff', borderBottom: '1px solid rgba(255,255,255,0.1)', '&:hover': { bgcolor: 'rgba(255,255,255,0.1)' } }}>
-                                        <ListItemIcon sx={{ minWidth: 30, color: '#FF9933' }}><ArrowRightIcon /></ListItemIcon>
-                                        <ListItemText primary={link} primaryTypographyProps={{ fontSize: '0.9rem' }} />
+                                    <ListItem
+                                        key={i}
+                                        component={Link}
+                                        href={link.href}
+                                        sx={{
+                                            color: '#333',
+                                            borderBottom: '1px solid #eee',
+                                            py: 1,
+                                            '&:hover': { bgcolor: '#e8f4fc', pl: 2.5, color: '#1a4e8e' },
+                                            transition: 'all 0.2s'
+                                        }}
+                                    >
+                                        <ListItemIcon sx={{ minWidth: 28, color: '#1a4e8e', fontSize: '0.9rem' }}>{link.icon}</ListItemIcon>
+                                        <ListItemText primary={link.text} primaryTypographyProps={{ fontSize: '0.85rem', fontWeight: 500 }} />
+                                        <ArrowRightIcon sx={{ fontSize: 16, opacity: 0.7 }} />
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </Paper>
+
+                        {/* Citizen Services Section */}
+                        <Paper sx={{ mt: 2, bgcolor: '#fff', overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
+                            <Box sx={{ bgcolor: '#e65100', color: '#fff', p: 1.5, borderLeft: '4px solid #1a4e8e', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>🏛️ Citizen Services</Typography>
+                            </Box>
+                            <List dense sx={{ py: 0 }}>
+                                {citizenServices.map((service, i) => (
+                                    <ListItem
+                                        key={i}
+                                        component={Link}
+                                        href={service.href}
+                                        sx={{
+                                            color: '#333',
+                                            borderBottom: '1px solid #eee',
+                                            py: 1,
+                                            '&:hover': { bgcolor: '#fff3e0', pl: 2.5, color: '#e65100' },
+                                            transition: 'all 0.2s'
+                                        }}
+                                    >
+                                        <ListItemIcon sx={{ minWidth: 28, fontSize: '0.9rem', color: '#e65100' }}>{service.icon}</ListItemIcon>
+                                        <ListItemText primary={service.text} primaryTypographyProps={{ fontSize: '0.85rem', fontWeight: 500 }} />
+                                        <ArrowRightIcon sx={{ fontSize: 16, opacity: 0.7 }} />
                                     </ListItem>
                                 ))}
                             </List>
                         </Paper>
 
                         {/* Downloads Section */}
-                        <Paper sx={{ mt: 3, bgcolor: '#fff', overflow: 'hidden', borderRadius: 0, border: '1px solid #ddd' }}>
-                            <Box sx={{ bgcolor: '#138808', color: '#fff', p: 2, borderLeft: '4px solid #FF9933' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>📥 Downloads</Typography>
+                        <Paper sx={{ mt: 2, bgcolor: '#fff', overflow: 'hidden', borderRadius: 0, border: '1px solid #ddd', boxShadow: 2 }}>
+                            <Box sx={{ bgcolor: '#138808', color: '#fff', p: 1.5, borderLeft: '4px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>📥 Downloads</Typography>
                             </Box>
-                            <List dense sx={{ py: 0 }}>
+                            <List dense sx={{ py: 0, maxHeight: 200, overflow: 'auto' }}>
                                 {downloads.map((item, i) => (
-                                    <ListItem key={i} component={Link} href="#" sx={{ borderBottom: '1px solid #eee', '&:hover': { bgcolor: '#f5f5f5' } }}>
-                                        <ListItemIcon sx={{ minWidth: 30, color: '#138808' }}><DownloadIcon fontSize="small" /></ListItemIcon>
-                                        <ListItemText primary={item} primaryTypographyProps={{ fontSize: '0.85rem' }} />
+                                    <ListItem
+                                        key={i}
+                                        component={Link}
+                                        href={item.href}
+                                        sx={{
+                                            borderBottom: '1px solid #eee',
+                                            py: 0.8,
+                                            '&:hover': { bgcolor: '#e8f5e9', pl: 2.5 },
+                                            transition: 'all 0.2s'
+                                        }}
+                                    >
+                                        <ListItemIcon sx={{ minWidth: 28, color: '#138808' }}><DownloadIcon sx={{ fontSize: 18 }} /></ListItemIcon>
+                                        <ListItemText primary={item.text} primaryTypographyProps={{ fontSize: '0.8rem', color: '#333' }} />
                                     </ListItem>
                                 ))}
                             </List>
                         </Paper>
+
+                        {/* Important Links Section */}
+                        <Paper sx={{ mt: 2, bgcolor: '#fff', overflow: 'hidden', borderRadius: 0, border: '1px solid #ddd', boxShadow: 2 }}>
+                            <Box sx={{ bgcolor: '#FF9933', color: '#fff', p: 1.5, borderLeft: '4px solid #138808', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>🔗 Important Links</Typography>
+                            </Box>
+                            <List dense sx={{ py: 0 }}>
+                                {importantLinks.map((link, i) => (
+                                    <ListItem
+                                        key={i}
+                                        component="a"
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        sx={{
+                                            borderBottom: '1px solid #eee',
+                                            py: 0.8,
+                                            '&:hover': { bgcolor: '#fff3e0', pl: 2.5 },
+                                            transition: 'all 0.2s',
+                                            textDecoration: 'none'
+                                        }}
+                                    >
+                                        <ListItemIcon sx={{ minWidth: 28, color: '#FF9933' }}><ArrowRightIcon sx={{ fontSize: 18 }} /></ListItemIcon>
+                                        <ListItemText
+                                            primary={link.text}
+                                            primaryTypographyProps={{ fontSize: '0.8rem', color: '#1a4e8e', fontWeight: 500 }}
+                                        />
+                                        <Typography variant="caption" sx={{ color: '#999', fontSize: '0.65rem' }}>↗</Typography>
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </Paper>
+
                     </Grid>
 
                     {/* Center - Main Content */}
                     <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
                         {/* Hero Banner */}
                         <Paper sx={{ p: { xs: 2, md: 4 }, textAlign: 'center', background: 'linear-gradient(135deg, #e8f4fc 0%, #f0f8ff 100%)', mb: 3 }}>
-                            <Typography component="h1" variant="h3" sx={{ fontWeight: 'bold', color: '#000080', fontSize: { xs: '1.8rem', md: '3rem' } }}>
+                            <Typography component="h1" variant="h3" sx={{ fontWeight: 'bold', color: '#000080', fontSize: { xs: '1.8rem', md: '3rem' }, fontFamily: 'Merriweather, serif' }}>
                                 माजा उमरेड
                             </Typography>
                             <Typography variant="h5" sx={{ fontWeight: 'bold', color: '#333', mb: 2, fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
@@ -161,9 +267,126 @@ export default function Home() {
                                 </Grid>
                             ))}
                         </Grid>
+
+                        {/* Mini Ward Map - Moved to Center Column */}
+                        <Paper sx={{ mt: 4, p: 2, border: '1px solid #eee', borderRadius: 0, '&:hover': { boxShadow: 3 } }}>
+                            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2, borderBottom: '2px solid #FF9933', pb: 1 }}>
+                                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#000080' }}>
+                                    🗺️ Ward Map
+                                </Typography>
+                                <Typography variant="caption" sx={{ color: '#666' }}>
+                                    Interactive Map
+                                </Typography>
+                            </Box>
+
+                            <Box sx={{ position: 'relative', width: '100%', bgcolor: '#e8f4fc', borderRadius: 1, overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
+                                <svg viewBox="0 0 600 500" style={{ width: '100%', maxWidth: 400, height: 'auto' }}>
+                                    {/* Background - Transparent in this view to blend with box */}
+                                    {/* Map Title - Removed for compact view */}
+
+                                    {/* Ward 1 */}
+                                    <polygon points="50,80 150,60 180,120 120,160 40,140" fill="#FF6B6B" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 1</title>
+                                    </polygon>
+                                    <text x="100" y="110" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">1</text>
+
+                                    {/* Ward 2 */}
+                                    <polygon points="150,60 280,50 300,100 180,120" fill="#4ECDC4" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 2</title>
+                                    </polygon>
+                                    <text x="215" y="90" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">2</text>
+
+                                    {/* Ward 3 */}
+                                    <polygon points="280,50 400,55 420,110 300,100" fill="#45B7D1" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 3</title>
+                                    </polygon>
+                                    <text x="350" y="85" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">3</text>
+
+                                    {/* Ward 4 */}
+                                    <polygon points="400,55 530,70 550,140 420,110" fill="#96CEB4" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 4</title>
+                                    </polygon>
+                                    <text x="475" y="100" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">4</text>
+
+                                    {/* Ward 5 */}
+                                    <polygon points="40,140 120,160 100,240 30,210" fill="#FFEAA7" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 5</title>
+                                    </polygon>
+                                    <text x="70" y="190" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#333">5</text>
+
+                                    {/* Ward 6 */}
+                                    <polygon points="120,160 180,120 300,100 280,180 200,220 100,240" fill="#DDA0DD" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 6</title>
+                                    </polygon>
+                                    <text x="190" y="175" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">6</text>
+
+                                    {/* Ward 7 */}
+                                    <polygon points="300,100 420,110 440,200 350,220 280,180" fill="#F0A500" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 7</title>
+                                    </polygon>
+                                    <text x="360" y="165" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">7</text>
+
+                                    {/* Ward 8 */}
+                                    <polygon points="420,110 550,140 560,230 440,200" fill="#E17055" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 8</title>
+                                    </polygon>
+                                    <text x="495" y="170" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">8</text>
+
+                                    {/* Ward 9 */}
+                                    <polygon points="30,210 100,240 80,330 25,300" fill="#74B9FF" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 9</title>
+                                    </polygon>
+                                    <text x="60" y="275" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">9</text>
+
+                                    {/* Ward 10 */}
+                                    <polygon points="100,240 200,220 280,180 350,220 320,310 200,340 80,330" fill="#A29BFE" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 10</title>
+                                    </polygon>
+                                    <text x="200" y="280" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#fff">10</text>
+
+                                    {/* Ward 11 */}
+                                    <polygon points="350,220 440,200 480,300 420,340 320,310" fill="#00B894" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 11</title>
+                                    </polygon>
+                                    <text x="400" y="275" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#fff">11</text>
+
+                                    {/* Ward 12 */}
+                                    <polygon points="440,200 560,230 570,320 480,300" fill="#FDCB6E" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 12</title>
+                                    </polygon>
+                                    <text x="510" y="270" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#333">12</text>
+
+                                    {/* Ward 13 */}
+                                    <polygon points="80,330 200,340 320,310 420,340 480,300 570,320 560,420 400,450 200,440 50,400 25,300" fill="#FF7675" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
+                                        <title>Ward 13</title>
+                                    </polygon>
+                                    <text x="300" y="385" textAnchor="middle" fontSize="20" fontWeight="bold" fill="#fff">13</text>
+                                </svg>
+                            </Box>
+
+                            <Box sx={{ mt: 2, pt: 1, borderTop: '1px solid #eee' }}>
+                                <Typography variant="caption" sx={{ fontWeight: 'bold', mb: 1, display: 'block' }}>Key:</Typography>
+                                <Grid container spacing={0.5}>
+                                    {[
+                                        { ward: 1, color: '#FF6B6B' }, { ward: 2, color: '#4ECDC4' }, { ward: 3, color: '#45B7D1' },
+                                        { ward: 4, color: '#96CEB4' }, { ward: 5, color: '#FFEAA7' }, { ward: 6, color: '#DDA0DD' },
+                                        { ward: 7, color: '#F0A500' }, { ward: 8, color: '#E17055' }, { ward: 9, color: '#74B9FF' },
+                                        { ward: 10, color: '#A29BFE' }, { ward: 11, color: '#00B894' },
+                                        { ward: 12, color: '#FDCB6E' }, { ward: 13, color: '#FF7675' },
+                                    ].map((item) => (
+                                        <Grid item key={item.ward}>
+                                            <Box sx={{ display: 'flex', alignItems: 'center', mr: 1, mb: 0.5, border: '1px solid #ddd', borderRadius: 1, px: 0.5, bgcolor: '#fafafa' }}>
+                                                <Box sx={{ width: 8, height: 8, bgcolor: item.color, borderRadius: '50%', mr: 0.5 }} />
+                                                <Typography variant="caption" sx={{ fontSize: '0.7rem' }}>W{item.ward}</Typography>
+                                            </Box>
+                                        </Grid>
+                                    ))}
+                                </Grid>
+                            </Box>
+                        </Paper>
                     </Grid>
 
-                    {/* Right Sidebar */}
+                    {/* Right Sidebar - Officials & News */}
                     <Grid item xs={12} md={3} order={{ xs: 3, md: 3 }}>
                         {/* Officials Section */}
                         <Paper sx={{ overflow: 'hidden', mb: 3 }}>
@@ -242,203 +465,7 @@ export default function Home() {
                 </Grid>
             </Container>
 
-            {/* Ward Map Section */}
-            <Box sx={{ bgcolor: '#f5f5f5', py: 4, mt: 4, borderTop: '3px solid #FF9933' }}>
-                <Container maxWidth="xl">
-                    <Typography variant="h4" sx={{ fontWeight: 'bold', color: '#000080', textAlign: 'center', mb: 1 }}>
-                        🗺️ उमरेड नगर परिषद वॉर्ड नकाशा
-                    </Typography>
-                    <Typography variant="h6" sx={{ textAlign: 'center', color: '#555', mb: 4 }}>
-                        Umred Municipal Council Ward Map
-                    </Typography>
-
-                    <Paper sx={{ p: 3, bgcolor: '#fff', borderRadius: 2, boxShadow: 3 }}>
-                        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
-                            {/* Map SVG */}
-                            <Box sx={{ flex: 2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <svg viewBox="0 0 600 500" style={{ width: '100%', maxWidth: 600, height: 'auto' }}>
-                                    {/* Background */}
-                                    <rect x="0" y="0" width="600" height="500" fill="#e8f4fc" rx="10" />
-
-                                    {/* Map Title */}
-                                    <text x="300" y="30" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#000080">उमरेड वॉर्ड नकाशा</text>
-
-                                    {/* Ward 1 */}
-                                    <polygon points="50,80 150,60 180,120 120,160 40,140" fill="#FF6B6B" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 1 (Ward 1)</title>
-                                    </polygon>
-                                    <text x="100" y="110" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#fff">1</text>
-
-                                    {/* Ward 2 */}
-                                    <polygon points="150,60 280,50 300,100 180,120" fill="#4ECDC4" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 2 (Ward 2)</title>
-                                    </polygon>
-                                    <text x="215" y="90" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#fff">2</text>
-
-                                    {/* Ward 3 */}
-                                    <polygon points="280,50 400,55 420,110 300,100" fill="#45B7D1" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 3 (Ward 3)</title>
-                                    </polygon>
-                                    <text x="350" y="85" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#fff">3</text>
-
-                                    {/* Ward 4 */}
-                                    <polygon points="400,55 530,70 550,140 420,110" fill="#96CEB4" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 4 (Ward 4)</title>
-                                    </polygon>
-                                    <text x="475" y="100" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#fff">4</text>
-
-                                    {/* Ward 5 */}
-                                    <polygon points="40,140 120,160 100,240 30,210" fill="#FFEAA7" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 5 (Ward 5)</title>
-                                    </polygon>
-                                    <text x="70" y="190" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#333">5</text>
-
-                                    {/* Ward 6 */}
-                                    <polygon points="120,160 180,120 300,100 280,180 200,220 100,240" fill="#DDA0DD" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 6 (Ward 6)</title>
-                                    </polygon>
-                                    <text x="190" y="175" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#fff">6</text>
-
-                                    {/* Ward 7 */}
-                                    <polygon points="300,100 420,110 440,200 350,220 280,180" fill="#F0A500" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 7 (Ward 7)</title>
-                                    </polygon>
-                                    <text x="360" y="165" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#fff">7</text>
-
-                                    {/* Ward 8 */}
-                                    <polygon points="420,110 550,140 560,230 440,200" fill="#E17055" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 8 (Ward 8)</title>
-                                    </polygon>
-                                    <text x="495" y="170" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#fff">8</text>
-
-                                    {/* Ward 9 */}
-                                    <polygon points="30,210 100,240 80,330 25,300" fill="#74B9FF" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 9 (Ward 9)</title>
-                                    </polygon>
-                                    <text x="60" y="275" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#fff">9</text>
-
-                                    {/* Ward 10 */}
-                                    <polygon points="100,240 200,220 280,180 350,220 320,310 200,340 80,330" fill="#A29BFE" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 10 (Ward 10)</title>
-                                    </polygon>
-                                    <text x="200" y="280" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#fff">10</text>
-
-                                    {/* Ward 11 */}
-                                    <polygon points="350,220 440,200 480,300 420,340 320,310" fill="#00B894" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 11 (Ward 11)</title>
-                                    </polygon>
-                                    <text x="400" y="275" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#fff">11</text>
-
-                                    {/* Ward 12 */}
-                                    <polygon points="440,200 560,230 570,320 480,300" fill="#FDCB6E" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 12 (Ward 12)</title>
-                                    </polygon>
-                                    <text x="510" y="270" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#333">12</text>
-
-                                    {/* Ward 13 */}
-                                    <polygon points="80,330 200,340 320,310 420,340 480,300 570,320 560,420 400,450 200,440 50,400 25,300" fill="#FF7675" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>वॉर्ड 13 (Ward 13)</title>
-                                    </polygon>
-                                    <text x="300" y="385" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">13</text>
-
-                                    {/* Compass Rose */}
-                                    <g transform="translate(540, 430)">
-                                        <circle r="25" fill="#fff" stroke="#333" strokeWidth="1" />
-                                        <polygon points="0,-20 3,-5 0,-8 -3,-5" fill="#FF9933" />
-                                        <polygon points="0,20 3,5 0,8 -3,5" fill="#333" />
-                                        <polygon points="20,0 5,3 8,0 5,-3" fill="#333" />
-                                        <polygon points="-20,0 -5,3 -8,0 -5,-3" fill="#333" />
-                                        <text x="0" y="-27" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#FF9933">N</text>
-                                    </g>
-
-                                    {/* Scale Bar */}
-                                    <g transform="translate(50, 470)">
-                                        <rect x="0" y="0" width="100" height="8" fill="#333" />
-                                        <rect x="0" y="0" width="50" height="8" fill="#fff" />
-                                        <text x="0" y="18" fontSize="8" fill="#333">0</text>
-                                        <text x="50" y="18" fontSize="8" fill="#333">1 km</text>
-                                        <text x="100" y="18" fontSize="8" fill="#333">2 km</text>
-                                    </g>
-                                </svg>
-                            </Box>
-
-                            {/* Ward Legend */}
-                            <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2, color: '#000080', borderBottom: '2px solid #FF9933', pb: 1 }}>
-                                    वॉर्ड माहिती (Ward Information)
-                                </Typography>
-                                <Grid container spacing={1}>
-                                    {[
-                                        { ward: 1, color: '#FF6B6B', name: 'वॉर्ड 1' },
-                                        { ward: 2, color: '#4ECDC4', name: 'वॉर्ड 2' },
-                                        { ward: 3, color: '#45B7D1', name: 'वॉर्ड 3' },
-                                        { ward: 4, color: '#96CEB4', name: 'वॉर्ड 4' },
-                                        { ward: 5, color: '#FFEAA7', name: 'वॉर्ड 5' },
-                                        { ward: 6, color: '#DDA0DD', name: 'वॉर्ड 6' },
-                                        { ward: 7, color: '#F0A500', name: 'वॉर्ड 7' },
-                                        { ward: 8, color: '#E17055', name: 'वॉर्ड 8' },
-                                        { ward: 9, color: '#74B9FF', name: 'वॉर्ड 9' },
-                                        { ward: 10, color: '#A29BFE', name: 'वॉर्ड 10' },
-                                        { ward: 11, color: '#00B894', name: 'वॉर्ड 11' },
-                                        { ward: 12, color: '#FDCB6E', name: 'वॉर्ड 12' },
-                                        { ward: 13, color: '#FF7675', name: 'वॉर्ड 13' },
-                                    ].map((item) => (
-                                        <Grid item xs={6} key={item.ward}>
-                                            <Box sx={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                gap: 1,
-                                                p: 0.5,
-                                                borderRadius: 1,
-                                                '&:hover': { bgcolor: '#f0f0f0' },
-                                                cursor: 'pointer'
-                                            }}>
-                                                <Box sx={{
-                                                    width: 20,
-                                                    height: 20,
-                                                    bgcolor: item.color,
-                                                    borderRadius: '50%',
-                                                    border: '2px solid #333',
-                                                    flexShrink: 0
-                                                }} />
-                                                <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                                                    {item.name}
-                                                </Typography>
-                                            </Box>
-                                        </Grid>
-                                    ))}
-                                </Grid>
-
-                                <Box sx={{ mt: 3, p: 2, bgcolor: '#e8f4fc', borderRadius: 1, border: '1px solid #1a4e8e' }}>
-                                    <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#000080', mb: 1 }}>
-                                        📌 टीप (Note):
-                                    </Typography>
-                                    <Typography variant="caption" sx={{ color: '#555' }}>
-                                        हा नकाशा प्रतिनिधित्वात्मक आहे. अचूक वॉर्ड सीमांसाठी नगर परिषद कार्यालयाशी संपर्क साधा.
-                                    </Typography>
-                                    <Typography variant="caption" display="block" sx={{ color: '#555', mt: 1 }}>
-                                        This map is representational. For exact ward boundaries, please contact the Municipal Council office.
-                                    </Typography>
-                                </Box>
-
-                                <Button
-                                    variant="contained"
-                                    component={Link}
-                                    href="/services"
-                                    sx={{
-                                        mt: 2,
-                                        bgcolor: '#FF9933',
-                                        '&:hover': { bgcolor: '#e68a00' },
-                                        fontWeight: 'bold'
-                                    }}
-                                >
-                                    View Ward Services →
-                                </Button>
-                            </Box>
-                        </Box>
-                    </Paper>
-                </Container>
-            </Box>
+            {/* End Main Content */}
         </div>
     );
 }
