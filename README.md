@@ -384,6 +384,35 @@ For partnership, pilot programs, or deployment inquiries, please create a detail
 
 ---
 
+## 🔐 Administrative Dashboards
+
+These dashboards are for **internal use only** and are not linked from the main website navigation.
+
+### Umred Government Dashboard
+**URL**: `/umred-gov-dashboard`
+
+A comprehensive dashboard for Umred Nagar Parishad officials featuring:
+- 📊 Ward-wise performance overview with scores for all 13 wards
+- 📈 Real-time statistics (citizens, complaints, revenue)
+- 🚨 Complaint management panel with priority tracking
+- 📋 Service delivery metrics (water, sanitation, lighting, roads)
+- 📰 Recent activities feed
+- 📥 Export reports functionality
+
+### Admin/Developer Dashboard
+**URL**: `/admin-dashboard`
+
+A system monitoring and maintenance dashboard for developers featuring:
+- 🖥️ System health monitoring (CPU, Memory, Disk, Network)
+- 👥 User statistics by role (citizens, officials, admins)
+- 🗄️ Database statistics (collections, documents, sizes)
+- 🔌 API performance metrics and endpoint health
+- 📝 Error logs viewer with resolution status
+- ⚡ Quick actions (clear cache, trigger backup, view logs)
+- 🔧 Environment information (Node.js, MongoDB versions)
+
+---
+
 ## 🙏 Acknowledgments
 
 This initiative aligns with:

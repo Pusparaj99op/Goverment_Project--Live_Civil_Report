@@ -94,38 +94,56 @@ export default function ContactPage() {
 
                 <Container maxWidth="xl">
                     <Box sx={{ position: 'relative', zIndex: 1 }}>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-                            <img src="/emblem_new.png" alt="Government Emblem" style={{ height: 60, filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))' }} />
-                            <Box>
-                                <Typography variant="caption" sx={{ color: '#000', fontWeight: 'bold', letterSpacing: 1 }}>
-                                    UMRED NAGAR PARISHAD
+                        <Grid container spacing={2} alignItems="center">
+                            <Grid item xs={12} md={8}>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+                                    <img src="/emblem_new.png" alt="Government Emblem" style={{ height: 60, filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))' }} />
+                                    <Box>
+                                        <Typography variant="caption" sx={{ color: '#000', fontWeight: 'bold', letterSpacing: 1 }}>
+                                            UMRED NAGAR PARISHAD
+                                        </Typography>
+                                        <Typography variant="caption" sx={{ display: 'block', opacity: 0.7 }}>
+                                            उमरेड नगरपरिषद | District Nagpur
+                                        </Typography>
+                                    </Box>
+                                </Box>
+
+                                <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 1, fontSize: { xs: '1.8rem', md: '2.5rem' }, fontFamily: 'Merriweather, serif' }}>
+                                    Contact Us
                                 </Typography>
-                                <Typography variant="caption" sx={{ display: 'block', opacity: 0.7 }}>
-                                    उमरेड नगरपरिषद | District Nagpur
+                                <Typography variant="h5" sx={{ color: '#1a4e8e', mb: 2, fontSize: { xs: '1.2rem', md: '1.5rem' }, fontWeight: 'bold' }}>
+                                    संपर्क करें | Get in Touch
                                 </Typography>
-                            </Box>
-                        </Box>
 
-                        <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 1, fontSize: { xs: '1.8rem', md: '2.5rem' }, fontFamily: 'Merriweather, serif' }}>
-                            Contact Us
-                        </Typography>
-                        <Typography variant="h5" sx={{ color: '#1a4e8e', mb: 2, fontSize: { xs: '1.2rem', md: '1.5rem' }, fontWeight: 'bold' }}>
-                            संपर्क करें | Get in Touch
-                        </Typography>
+                                <Box sx={{ bgcolor: 'rgba(255,255,255,0.3)', p: 2, borderRadius: 1, borderLeft: '4px solid #1a4e8e', maxWidth: 700 }}>
+                                    <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+                                        We are here to help you. Reach out to us for any queries, grievances, or feedback.
+                                        Our team is committed to serving the citizens of Umred.
+                                    </Typography>
+                                </Box>
 
-                        <Box sx={{ bgcolor: 'rgba(255,255,255,0.3)', p: 2, borderRadius: 1, borderLeft: '4px solid #1a4e8e', maxWidth: 700 }}>
-                            <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
-                                We are here to help you. Reach out to us for any queries, grievances, or feedback.
-                                Our team is committed to serving the citizens of Umred.
-                            </Typography>
-                        </Box>
-
-                        {/* Tricolor Bar */}
-                        <Box sx={{ display: 'flex', mt: 3, gap: 0 }}>
-                            <Box sx={{ width: 60, height: 6, bgcolor: '#FF9933', borderRadius: '3px 0 0 3px' }} />
-                            <Box sx={{ width: 60, height: 6, bgcolor: '#fff' }} />
-                            <Box sx={{ width: 60, height: 6, bgcolor: '#138808', borderRadius: '0 3px 3px 0' }} />
-                        </Box>
+                                {/* Tricolor Bar */}
+                                <Box sx={{ display: 'flex', mt: 3, gap: 0 }}>
+                                    <Box sx={{ width: 60, height: 6, bgcolor: '#FF9933', borderRadius: '3px 0 0 3px' }} />
+                                    <Box sx={{ width: 60, height: 6, bgcolor: '#fff' }} />
+                                    <Box sx={{ width: 60, height: 6, bgcolor: '#138808', borderRadius: '0 3px 3px 0' }} />
+                                </Box>
+                            </Grid>
+                            <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+                                <img
+                                    src="/images/arts/contact.png"
+                                    alt="Contact Art"
+                                    style={{
+                                        maxWidth: '100%',
+                                        height: 'auto',
+                                        maxHeight: '700px',
+                                        objectFit: 'contain',
+                                        filter: 'drop-shadow(0px 4px 10px rgba(0,0,0,0.2))',
+                                        borderRadius: '5px'
+                                    }}
+                                />
+                            </Grid>
+                        </Grid>
                     </Box>
                 </Container>
             </Box>

@@ -9,6 +9,7 @@ import BadgeIcon from '@mui/icons-material/Badge';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DocumentScanner from '../../../components/DocumentScanner';
 
 // Dynamic API URL
 const getApiBaseUrl = () => {
@@ -41,11 +42,13 @@ export default function RegisterPage() {
         confirmPassword: '',
         phone: '',
         ward: 'Ward 1',
-        idProofType: 'Aadhar Card',
+        idProofType: '',
         idProofNumber: ''
     });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [autoFilled, setAutoFilled] = useState({ name: false, idNumber: false });
+    const [showScanner, setShowScanner] = useState(false);
     const router = useRouter();
 
     const handleChange = (e) => {
@@ -83,6 +86,24 @@ export default function RegisterPage() {
         } finally {
             setLoading(false);
         }
+    };
+
+    const handleDataExtracted = (extractedData) => {
+        const updates = {};
+        const autoFillUpdates = {};
+
+        if (extractedData.name) {
+            updates.name = extractedData.name;
+            autoFillUpdates.name = true;
+        }
+        if (extractedData.idNumber) {
+            updates.idProofNumber = extractedData.idNumber;
+            autoFillUpdates.idNumber = true;
+        }
+
+        setFormData(prev => ({ ...prev, ...updates }));
+        setAutoFilled(prev => ({ ...prev, ...autoFillUpdates }));
+        setShowScanner(false);
     };
 
     const steps = ['Personal Details', 'Ward Selection', 'ID Verification'];
@@ -241,6 +262,8 @@ export default function RegisterPage() {
                                                     onChange={handleChange}
                                                     InputProps={{ sx: { borderRadius: 0 } }}
                                                     size="small"
+                                                    helperText={autoFilled.name ? "✓ Auto-filled from document" : ""}
+                                                    FormHelperTextProps={{ sx: { color: '#138808', fontWeight: 'bold' } }}
                                                 />
                                             </Grid>
                                             <Grid item xs={12} sm={6}>
@@ -287,7 +310,39 @@ export default function RegisterPage() {
                                                 </TextField>
                                             </Grid>
 
-                                            {/* Section: ID Verification */}
+                                            {/* Section: Document Scanner */}
+                                            <Grid item xs={12}>
+                                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 2, mb: 1 }}>
+                                                    <VerifiedIcon sx={{ color: '#138808' }} />
+                                                    <Typography variant="subtitle2" sx={{ fontWeight: 'bold', color: '#138808' }}>
+                                                        ID Verification / ओळख पडताळणी
+                                                    </Typography>
+                                                </Box>
+                                                {!showScanner ? (
+                                                    <Button
+                                                        variant="outlined"
+                                                        size="small"
+                                                        onClick={() => setShowScanner(true)}
+                                                        sx={{
+                                                            borderRadius: 0,
+                                                            borderColor: '#138808',
+                                                            color: '#138808',
+                                                            '&:hover': { bgcolor: '#138808', color: '#fff' }
+                                                        }}
+                                                    >
+                                                        📷 Scan ID Document / दस्तावेज़ स्कैन करें
+                                                    </Button>
+                                                ) : (
+                                                    <Box sx={{ mb: 2 }}>
+                                                        <DocumentScanner
+                                                            idType={formData.idProofType}
+                                                            onDataExtracted={handleDataExtracted}
+                                                        />
+                                                    </Box>
+                                                )}
+                                            </Grid>
+
+                                            {/* Section: ID Verification Fields */}
                                             <Grid item xs={12}>
                                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 2, mb: 1 }}>
                                                     <VerifiedIcon sx={{ color: '#138808' }} />
@@ -298,16 +353,16 @@ export default function RegisterPage() {
                                             </Grid>
                                             <Grid item xs={12} sm={6}>
                                                 <TextField
-                                                    required
                                                     fullWidth
                                                     select
-                                                    label="ID Proof Type / ओळखपत्र प्रकार"
+                                                    label="ID Proof Type / ओळखपत्र प्रकार (Optional)"
                                                     name="idProofType"
                                                     value={formData.idProofType}
                                                     onChange={handleChange}
                                                     InputProps={{ sx: { borderRadius: 0 } }}
                                                     size="small"
                                                 >
+                                                    <MenuItem value="">Select (Optional)</MenuItem>
                                                     {ID_PROOF_TYPES.map((option) => (
                                                         <MenuItem key={option.value} value={option.value}>
                                                             {option.label}
@@ -317,14 +372,15 @@ export default function RegisterPage() {
                                             </Grid>
                                             <Grid item xs={12} sm={6}>
                                                 <TextField
-                                                    required
                                                     fullWidth
-                                                    label="ID Proof Number / ओळखपत्र क्रमांक"
+                                                    label="ID Proof Number / ओळखपत्र क्रमांक (Optional)"
                                                     name="idProofNumber"
                                                     value={formData.idProofNumber}
                                                     onChange={handleChange}
                                                     InputProps={{ sx: { borderRadius: 0 } }}
                                                     size="small"
+                                                    helperText={autoFilled.idNumber ? "✓ Auto-filled from document" : "You can add this later in Profile"}
+                                                    FormHelperTextProps={{ sx: { color: autoFilled.idNumber ? '#138808' : '#666', fontWeight: autoFilled.idNumber ? 'bold' : 'normal' } }}
                                                 />
                                             </Grid>
 

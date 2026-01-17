@@ -1,0 +1,146 @@
+# ================================
+# Majha Umred - Docker Compose
+# Local Development Environment
+# ================================
+
+version: '3.8'
+
+services:
+  # ====================
+  # Application
+  # ====================
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    container_name: majha-umred-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongo:27017/maja_umred_db
+      - JWT_SECRET=${JWT_SECRET:-your_jwt_secret_here}
+      - PORT=5000
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - majha-umred-network
+    volumes:
+      - uploads:/app/uploads
+
+  # ====================
+  # Development App
+  # ====================
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: majha-umred-dev
+    ports:
+      - "3000:3000"
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongo:27017/maja_umred_db
+      - JWT_SECRET=development_secret_key_change_in_prod
+      - PORT=5000
+    depends_on:
+      - mongo
+    networks:
+      - majha-umred-network
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    profiles:
+      - dev
+
+  # ====================
+  # MongoDB
+  # ====================
+  mongo:
+    image: mongo:6.0
+    container_name: majha-umred-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=maja_umred_db
+    volumes:
+      - mongo-data:/data/db
+      - mongo-config:/data/configdb
+    networks:
+      - majha-umred-network
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.runCommand({ping:1})" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # ====================
+  # Redis (Caching)
+  # ====================
+  redis:
+    image: redis:7-alpine
+    container_name: majha-umred-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - majha-umred-network
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command: redis-server --appendonly yes
+
+  # ====================
+  # MongoDB Admin UI
+  # ====================
+  mongo-express:
+    image: mongo-express:latest
+    container_name: majha-umred-mongo-express
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin123
+    depends_on:
+      - mongo
+    networks:
+      - majha-umred-network
+    profiles:
+      - tools
+
+# ====================
+# Networks
+# ====================
+networks:
+  majha-umred-network:
+    driver: bridge
+
+# ====================
+# Volumes
+# ====================
+volumes:
+  mongo-data:
+    driver: local
+  mongo-config:
+    driver: local
+  redis-data:
+    driver: local
+  uploads:
+    driver: local

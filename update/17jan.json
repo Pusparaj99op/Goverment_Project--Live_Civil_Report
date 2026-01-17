@@ -1,0 +1,1086 @@
+{
+    "metadata": {
+        "project_name": "Majha Umred - E-Governance Platform",
+        "analysis_date": "2026-01-17",
+        "analyzed_by": "AI Code Reviewer",
+        "analysis_version": "1.0",
+        "total_improvements": 127
+    },
+    "improvements": {
+        "security": [
+            {
+                "id": "SEC-001",
+                "priority": "CRITICAL",
+                "category": "Authentication",
+                "title": "Replace hardcoded JWT_SECRET with environment variable enforcement",
+                "description": "Currently using fallback 'secret123' in auth.js and complaints.js when JWT_SECRET is not set. This is a severe security risk.",
+                "location": "server/routes/auth.js:7, server/routes/complaints.js:13",
+                "recommendation": "Remove fallback, require JWT_SECRET in environment, fail application startup if not provided",
+                "effort": "LOW",
+                "impact": "CRITICAL"
+            },
+            {
+                "id": "SEC-002",
+                "priority": "CRITICAL",
+                "category": "Environment Variables",
+                "title": "Create .env.example file",
+                "description": "No .env.example file exists to guide developers on required environment variables",
+                "location": "root directory",
+                "recommendation": "Create .env.example with all required variables documented",
+                "effort": "LOW",
+                "impact": "HIGH"
+            },
+            {
+                "id": "SEC-003",
+                "priority": "HIGH",
+                "category": "Password Security",
+                "title": "Add password strength validation",
+                "description": "No password strength requirements enforced during registration",
+                "location": "server/routes/auth.js",
+                "recommendation": "Implement minimum 8 characters, uppercase, lowercase, number, special char requirements",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "SEC-004",
+                "priority": "HIGH",
+                "category": "Rate Limiting",
+                "title": "Implement rate limiting on auth routes",
+                "description": "Authentication endpoints vulnerable to brute force attacks",
+                "location": "server/routes/auth.js",
+                "recommendation": "Add express-rate-limit middleware to /login and /register endpoints (5 attempts per 15 min)",
+                "effort": "LOW",
+                "impact": "HIGH"
+            },
+            {
+                "id": "SEC-005",
+                "priority": "HIGH",
+                "category": "Input Validation",
+                "title": "Add comprehensive input validation middleware",
+                "description": "Limited input validation on API endpoints, vulnerable to injection attacks",
+                "location": "All server routes",
+                "recommendation": "Use express-validator or Joi for all request body/param validation",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "SEC-006",
+                "priority": "MEDIUM",
+                "category": "CORS",
+                "title": "Configure CORS with specific origins",
+                "description": "CORS is currently wide open (no origin restrictions)",
+                "location": "server/index.js:22",
+                "recommendation": "Configure CORS with whitelist of allowed origins based on environment",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "SEC-007",
+                "priority": "HIGH",
+                "category": "Security Headers",
+                "title": "Add Helmet.js middleware",
+                "description": "Helmet is in dependencies but not used in server",
+                "location": "server/index.js",
+                "recommendation": "Add app.use(helmet()) to set security headers",
+                "effort": "LOW",
+                "impact": "HIGH"
+            },
+            {
+                "id": "SEC-008",
+                "priority": "MEDIUM",
+                "category": "XSS Protection",
+                "title": "Sanitize user inputs for XSS",
+                "description": "User-generated content not sanitized before storage/display",
+                "location": "All routes accepting user input",
+                "recommendation": "Use xss-clean or DOMPurify to sanitize inputs",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "SEC-009",
+                "priority": "MEDIUM",
+                "category": "File Upload Security",
+                "title": "Add file upload validation and virus scanning",
+                "description": "Image uploads not validated for type, size, or malware",
+                "location": "server/routes/documents.js",
+                "recommendation": "Validate MIME types, implement max file size, consider ClamAV integration",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "SEC-010",
+                "priority": "LOW",
+                "category": "Session Management",
+                "title": "Implement refresh token mechanism",
+                "description": "Using only access tokens with 30-day expiry, no refresh token strategy",
+                "location": "server/routes/auth.js",
+                "recommendation": "Implement short-lived access tokens (15min) with refresh tokens",
+                "effort": "HIGH",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "SEC-011",
+                "priority": "CRITICAL",
+                "category": "Client-side Security",
+                "title": "Move authentication from localStorage to httpOnly cookies",
+                "description": "JWT tokens stored in localStorage vulnerable to XSS attacks",
+                "location": "components/Navbar.jsx:68-76",
+                "recommendation": "Store tokens in httpOnly cookies, implement CSRF protection",
+                "effort": "HIGH",
+                "impact": "CRITICAL"
+            },
+            {
+                "id": "SEC-012",
+                "priority": "HIGH",
+                "category": "MongoDB Security",
+                "title": "Implement MongoDB connection string validation",
+                "description": "MongoDB URI using default localhost with no authentication",
+                "location": "server/config/db.js:5",
+                "recommendation": "Enforce authenticated MongoDB connection, use connection string with credentials",
+                "effort": "LOW",
+                "impact": "HIGH"
+            }
+        ],
+        "testing": [
+            {
+                "id": "TEST-001",
+                "priority": "HIGH",
+                "category": "Unit Testing",
+                "title": "Create Jest configuration",
+                "description": "Jest is in devDependencies but no jest.config.js exists",
+                "location": "root directory",
+                "recommendation": "Create jest.config.js with proper setup for Node.js and React testing",
+                "effort": "LOW",
+                "impact": "HIGH"
+            },
+            {
+                "id": "TEST-002",
+                "priority": "HIGH",
+                "category": "Test Coverage",
+                "title": "Add unit tests for all API routes",
+                "description": "No test files exist for backend routes",
+                "location": "server/routes/",
+                "recommendation": "Create __tests__ directory with unit tests for auth, complaints, payments, etc.",
+                "effort": "HIGH",
+                "impact": "HIGH"
+            },
+            {
+                "id": "TEST-003",
+                "priority": "MEDIUM",
+                "category": "Integration Testing",
+                "title": "Add integration tests for API workflows",
+                "description": "No integration tests for complete user flows",
+                "location": "tests/",
+                "recommendation": "Use supertest to test complete flows (register -> login -> create complaint)",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "TEST-004",
+                "priority": "MEDIUM",
+                "category": "Frontend Testing",
+                "title": "Add component tests using React Testing Library",
+                "description": "No tests for React components",
+                "location": "components/, app/",
+                "recommendation": "Create tests for Navbar, Footer, ChatWidget, and page components",
+                "effort": "HIGH",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "TEST-005",
+                "priority": "LOW",
+                "category": "E2E Testing",
+                "title": "Configure and implement Cypress tests",
+                "description": "Cypress installed but no test files exist",
+                "location": "cypress/",
+                "recommendation": "Create E2E tests for critical user journeys",
+                "effort": "HIGH",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "TEST-006",
+                "priority": "MEDIUM",
+                "category": "Test Database",
+                "title": "Set up test database configuration",
+                "description": "No separate test database configuration",
+                "location": "server/config/",
+                "recommendation": "Use mongodb-memory-server for isolated testing",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            }
+        ],
+        "performance": [
+            {
+                "id": "PERF-001",
+                "priority": "HIGH",
+                "category": "Bundle Size",
+                "title": "Analyze and optimize bundle size",
+                "description": "Bundle analyzer installed but bundle size not optimized",
+                "location": "package.json",
+                "recommendation": "Run bundle analysis, implement code splitting, lazy loading for large components",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "PERF-002",
+                "priority": "MEDIUM",
+                "category": "Image Optimization",
+                "title": "Use Next.js Image component for all images",
+                "description": "Using regular <img> tags instead of Next.js Image component",
+                "location": "components/Navbar.jsx, app/page.jsx",
+                "recommendation": "Replace all <img> with next/image for automatic optimization",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "PERF-003",
+                "priority": "HIGH",
+                "category": "Database",
+                "title": "Add database indexing",
+                "description": "No explicit indexes defined on frequently queried fields",
+                "location": "server/models/",
+                "recommendation": "Add indexes on email, ward, status, createdAt fields",
+                "effort": "LOW",
+                "impact": "HIGH"
+            },
+            {
+                "id": "PERF-004",
+                "priority": "MEDIUM",
+                "category": "API Response",
+                "title": "Implement response compression",
+                "description": "Compression package installed but not used",
+                "location": "server/index.js",
+                "recommendation": "Add app.use(compression()) middleware",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "PERF-005",
+                "priority": "MEDIUM",
+                "category": "Caching",
+                "title": "Implement Redis caching for frequent queries",
+                "description": "Redis/ioredis installed but not implemented",
+                "location": "server/",
+                "recommendation": "Cache ward stats, complaint summaries, and user profiles",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "PERF-006",
+                "priority": "LOW",
+                "category": "Database Queries",
+                "title": "Optimize aggregation queries",
+                "description": "Complex aggregations in complaints.js without indexes",
+                "location": "server/routes/complaints.js:245-287",
+                "recommendation": "Add compound indexes and use MongoDB aggregation pipeline optimization",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "PERF-007",
+                "priority": "MEDIUM",
+                "category": "Static Assets",
+                "title": "Implement CDN for static assets",
+                "description": "All assets served from local server",
+                "location": "public/",
+                "recommendation": "Use Cloudflare or AWS CloudFront for static assets",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "PERF-008",
+                "priority": "LOW",
+                "category": "Request Optimization",
+                "title": "Implement GraphQL or data fetching optimization",
+                "description": "REST endpoints may over-fetch data",
+                "location": "server/routes/",
+                "recommendation": "Consider GraphQL or add field selection query params",
+                "effort": "HIGH",
+                "impact": "LOW"
+            }
+        ],
+        "architecture": [
+            {
+                "id": "ARCH-001",
+                "priority": "HIGH",
+                "category": "Code Organization",
+                "title": "Separate middleware into dedicated directory",
+                "description": "Auth middleware duplicated in multiple route files",
+                "location": "server/routes/",
+                "recommendation": "Create server/middleware/auth.js and import where needed",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "ARCH-002",
+                "priority": "MEDIUM",
+                "category": "Error Handling",
+                "title": "Implement centralized error handling",
+                "description": "Error handling inconsistent across routes",
+                "location": "server/",
+                "recommendation": "Create custom error classes and centralized error middleware",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "ARCH-003",
+                "priority": "MEDIUM",
+                "category": "Validation",
+                "title": "Create reusable validation schemas",
+                "description": "Validation logic scattered across routes",
+                "location": "server/routes/",
+                "recommendation": "Create server/validators/ directory with Joi schemas",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "ARCH-004",
+                "priority": "LOW",
+                "category": "Services Layer",
+                "title": "Implement service layer pattern",
+                "description": "Business logic mixed with route handlers",
+                "location": "server/routes/",
+                "recommendation": "Create server/services/ for business logic separation",
+                "effort": "HIGH",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "ARCH-005",
+                "priority": "MEDIUM",
+                "category": "API Versioning",
+                "title": "Add API versioning",
+                "description": "No API versioning strategy in place",
+                "location": "server/index.js",
+                "recommendation": "Implement /api/v1/ prefix for all routes",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "ARCH-006",
+                "priority": "HIGH",
+                "category": "TypeScript",
+                "title": "Consider migrating to TypeScript",
+                "description": "TypeScript is in devDependencies but project uses JavaScript",
+                "location": "entire project",
+                "recommendation": "Gradual migration starting with new files, using .ts/.tsx extensions",
+                "effort": "HIGH",
+                "impact": "HIGH"
+            },
+            {
+                "id": "ARCH-007",
+                "priority": "MEDIUM",
+                "category": "State Management",
+                "title": "Implement global state management",
+                "description": "Zustand installed but not utilized, using localStorage directly",
+                "location": "components/Navbar.jsx",
+                "recommendation": "Create Zustand store for auth state management",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "ARCH-008",
+                "priority": "LOW",
+                "category": "Monorepo Structure",
+                "title": "Consider separating frontend and backend",
+                "description": "Frontend and backend tightly coupled in single repo",
+                "location": "root",
+                "recommendation": "Consider monorepo with separate packages or split repositories",
+                "effort": "HIGH",
+                "impact": "LOW"
+            }
+        ],
+        "devops_ci_cd": [
+            {
+                "id": "DEVOPS-001",
+                "priority": "HIGH",
+                "category": "CI/CD",
+                "title": "Add GitHub Actions workflows",
+                "description": "No CI/CD pipeline configured",
+                "location": ".github/workflows/",
+                "recommendation": "Create workflows for lint, test, build, and deploy",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "DEVOPS-002",
+                "priority": "HIGH",
+                "category": "Docker",
+                "title": "Create Docker setup",
+                "description": "No Dockerfile or docker-compose.yml",
+                "location": "root",
+                "recommendation": "Create multi-stage Dockerfile and docker-compose for local dev",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "DEVOPS-003",
+                "priority": "MEDIUM",
+                "category": "Git Hooks",
+                "title": "Configure Husky pre-commit hooks",
+                "description": "Husky installed but no pre-commit configuration",
+                "location": ".husky/",
+                "recommendation": "Add pre-commit hook for lint-staged, tests",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "DEVOPS-004",
+                "priority": "MEDIUM",
+                "category": "Environment Management",
+                "title": "Add .env validation on startup",
+                "description": "No validation of required environment variables",
+                "location": "server/index.js",
+                "recommendation": "Use dotenv-safe or create startup validation script",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "DEVOPS-005",
+                "priority": "HIGH",
+                "category": "Logging",
+                "title": "Implement structured logging with Winston",
+                "description": "Winston installed but only using console.log/error",
+                "location": "server/",
+                "recommendation": "Create logger service with Winston for structured logs",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "DEVOPS-006",
+                "priority": "MEDIUM",
+                "category": "Monitoring",
+                "title": "Add application monitoring",
+                "description": "No APM or error tracking configured",
+                "location": "server/",
+                "recommendation": "Integrate Sentry for error tracking or New Relic for APM",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "DEVOPS-007",
+                "priority": "LOW",
+                "category": "Health Checks",
+                "title": "Enhance health check endpoint",
+                "description": "Basic health check doesn't verify database connectivity",
+                "location": "server/index.js:35",
+                "recommendation": "Add /health/ready and /health/live with DB connectivity check",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "DEVOPS-008",
+                "priority": "MEDIUM",
+                "category": "Database Migrations",
+                "title": "Implement proper migration system",
+                "description": "Sequelize-cli configured but using Mongoose (mismatch)",
+                "location": "package.json",
+                "recommendation": "Use migrate-mongo or similar for MongoDB migrations",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            }
+        ],
+        "documentation": [
+            {
+                "id": "DOC-001",
+                "priority": "HIGH",
+                "category": "API Documentation",
+                "title": "Add OpenAPI/Swagger documentation",
+                "description": "No API documentation for developers",
+                "location": "docs/",
+                "recommendation": "Use swagger-jsdoc and swagger-ui-express for interactive API docs",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "DOC-002",
+                "priority": "MEDIUM",
+                "category": "Code Documentation",
+                "title": "Add JSDoc comments to all functions",
+                "description": "Limited inline documentation",
+                "location": "server/, components/",
+                "recommendation": "Add JSDoc comments for all exported functions and complex logic",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "DOC-003",
+                "priority": "HIGH",
+                "category": "Setup Documentation",
+                "title": "Enhance QUICK_START.md with database setup",
+                "description": "Missing MongoDB installation and seeding instructions",
+                "location": "docs/QUICK_START.md",
+                "recommendation": "Add complete database setup, seed data, and troubleshooting",
+                "effort": "LOW",
+                "impact": "HIGH"
+            },
+            {
+                "id": "DOC-004",
+                "priority": "MEDIUM",
+                "category": "Architecture Documentation",
+                "title": "Create architecture decision records (ADRs)",
+                "description": "No documentation of architectural decisions",
+                "location": "docs/adr/",
+                "recommendation": "Document key decisions (MongoDB choice, Next.js, MUI, etc.)",
+                "effort": "MEDIUM",
+                "impact": "LOW"
+            },
+            {
+                "id": "DOC-005",
+                "priority": "LOW",
+                "category": "Contributing Guide",
+                "title": "Create CONTRIBUTING.md",
+                "description": "README mentions contribution but no detailed guide",
+                "location": "root",
+                "recommendation": "Create comprehensive contributing guide with dev setup, standards",
+                "effort": "MEDIUM",
+                "impact": "LOW"
+            },
+            {
+                "id": "DOC-006",
+                "priority": "MEDIUM",
+                "category": "Deployment Guide",
+                "title": "Add production deployment documentation",
+                "description": "README mentions deployment options but no detailed guides",
+                "location": "docs/",
+                "recommendation": "Create deployment guides for Vercel, AWS, Azure, DigitalOcean",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "DOC-007",
+                "priority": "LOW",
+                "category": "User Documentation",
+                "title": "Create end-user documentation/help",
+                "description": "No user-facing help documentation or FAQs",
+                "location": "docs/",
+                "recommendation": "Create user guides for common tasks, FAQs",
+                "effort": "MEDIUM",
+                "impact": "LOW"
+            }
+        ],
+        "features_functionality": [
+            {
+                "id": "FEAT-001",
+                "priority": "MEDIUM",
+                "category": "Search",
+                "title": "Implement functional search feature",
+                "description": "Search bar in navbar is non-functional",
+                "location": "components/Navbar.jsx:332-340",
+                "recommendation": "Implement search for services, wards, complaints with Elasticsearch/Algolia",
+                "effort": "HIGH",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "FEAT-002",
+                "priority": "HIGH",
+                "category": "Notifications",
+                "title": "Implement real-time notifications",
+                "description": "Socket.io installed but not implemented",
+                "location": "server/",
+                "recommendation": "Add WebSocket for real-time complaint updates, announcements",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "FEAT-003",
+                "priority": "MEDIUM",
+                "category": "Email",
+                "title": "Implement email notifications",
+                "description": "Nodemailer installed but not configured",
+                "location": "server/",
+                "recommendation": "Set up email service for registration, complaint updates, OTP",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "FEAT-004",
+                "priority": "MEDIUM",
+                "category": "SMS",
+                "title": "Implement SMS notifications using Twilio",
+                "description": "Twilio installed but not implemented",
+                "location": "server/",
+                "recommendation": "Add SMS for OTP, critical complaint updates",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "FEAT-005",
+                "priority": "HIGH",
+                "category": "File Management",
+                "title": "Implement cloud storage for uploads",
+                "description": "AWS SDK installed but local storage used",
+                "location": "server/routes/documents.js",
+                "recommendation": "Migrate to S3 for scalable file storage",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "FEAT-006",
+                "priority": "LOW",
+                "category": "Analytics",
+                "title": "Add analytics dashboard for officials",
+                "description": "Analytics mentioned but limited implementation",
+                "location": "app/admin-dashboard/",
+                "recommendation": "Create comprehensive analytics with Chart.js/D3.js visualizations",
+                "effort": "HIGH",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "FEAT-007",
+                "priority": "MEDIUM",
+                "category": "Multi-language",
+                "title": "Complete i18n implementation",
+                "description": "i18next installed but not fully implemented",
+                "location": "app/",
+                "recommendation": "Add complete translations for Marathi, Hindi beyond AI chatbot",
+                "effort": "HIGH",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "FEAT-008",
+                "priority": "MEDIUM",
+                "category": "OCR",
+                "title": "Implement document OCR feature",
+                "description": "Tesseract.js installed but not utilized",
+                "location": "components/DocumentScanner.jsx",
+                "recommendation": "Complete OCR implementation for document verification",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "FEAT-009",
+                "priority": "HIGH",
+                "category": "Payment Gateway",
+                "title": "Integrate payment gateway",
+                "description": "Payment routes exist but no actual payment integration",
+                "location": "server/routes/payments.js",
+                "recommendation": "Integrate Razorpay/PayU for tax and bill payments",
+                "effort": "HIGH",
+                "impact": "HIGH"
+            },
+            {
+                "id": "FEAT-010",
+                "priority": "MEDIUM",
+                "category": "AI/ML",
+                "title": "Enhance AI priority assignment with actual ML model",
+                "description": "AI priority using basic keyword matching, not ML",
+                "location": "server/routes/complaints.js:26-67",
+                "recommendation": "Train TensorFlow.js model for intelligent priority classification",
+                "effort": "HIGH",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "FEAT-011",
+                "priority": "LOW",
+                "category": "Background Jobs",
+                "title": "Implement Bull queue for async tasks",
+                "description": "Bull installed but not configured",
+                "location": "server/",
+                "recommendation": "Use Bull for email sending, report generation, data processing",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "FEAT-012",
+                "priority": "MEDIUM",
+                "category": "Mobile App",
+                "title": "Develop mobile application",
+                "description": "README mentions mobile app but not implemented",
+                "location": "N/A",
+                "recommendation": "Create React Native app or PWA for mobile users",
+                "effort": "VERY_HIGH",
+                "impact": "HIGH"
+            },
+            {
+                "id": "FEAT-013",
+                "priority": "LOW",
+                "category": "Geolocation",
+                "title": "Enhance Leaflet map integration",
+                "description": "Leaflet installed but limited implementation",
+                "location": "app/",
+                "recommendation": "Add interactive ward maps, complaint location visualization",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            }
+        ],
+        "ui_ux": [
+            {
+                "id": "UI-001",
+                "priority": "MEDIUM",
+                "category": "Loading States",
+                "title": "Add loading states for all async operations",
+                "description": "nprogress installed but not used consistently",
+                "location": "app/",
+                "recommendation": "Add loading indicators for API calls, page transitions",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "UI-002",
+                "priority": "MEDIUM",
+                "category": "Toast Notifications",
+                "title": "Implement toast notifications",
+                "description": "react-toastify installed but not configured",
+                "location": "app/",
+                "recommendation": "Add toast notifications for success/error feedback",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "UI-003",
+                "priority": "LOW",
+                "category": "Form Validation",
+                "title": "Enhance form UX with react-hook-form",
+                "description": "react-hook-form installed but inconsistently used",
+                "location": "app/auth/, app/services/",
+                "recommendation": "Standardize all forms with react-hook-form for better UX",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "UI-004",
+                "priority": "MEDIUM",
+                "category": "Responsive Design",
+                "title": "Improve mobile responsiveness",
+                "description": "Some components not optimized for mobile",
+                "location": "app/page.jsx",
+                "recommendation": "Test and fix responsive layout issues on all breakpoints",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "UI-005",
+                "priority": "LOW",
+                "category": "Dark Mode",
+                "title": "Implement dark mode",
+                "description": "No dark mode support",
+                "location": "app/layout.jsx",
+                "recommendation": "Add theme toggle with MUI theme provider",
+                "effort": "MEDIUM",
+                "impact": "LOW"
+            },
+            {
+                "id": "UI-006",
+                "priority": "MEDIUM",
+                "category": "Error Pages",
+                "title": "Create custom error pages",
+                "description": "No custom 404, 500 error pages",
+                "location": "app/",
+                "recommendation": "Create app/not-found.jsx and app/error.jsx",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "UI-007",
+                "priority": "LOW",
+                "category": "Animations",
+                "title": "Add micro-interactions and animations",
+                "description": "Limited use of animations for better UX",
+                "location": "components/, app/",
+                "recommendation": "Add subtle transitions, hover effects using Framer Motion",
+                "effort": "MEDIUM",
+                "impact": "LOW"
+            },
+            {
+                "id": "UI-008",
+                "priority": "MEDIUM",
+                "category": "Consistency",
+                "title": "Standardize component styling approach",
+                "description": "Mixing Tailwind, MUI styling, and inline styles",
+                "location": "app/, components/",
+                "recommendation": "Choose one primary approach (MUI sx or Tailwind) for consistency",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            }
+        ],
+        "accessibility": [
+            {
+                "id": "A11Y-001",
+                "priority": "HIGH",
+                "category": "ARIA",
+                "title": "Add ARIA labels to all interactive elements",
+                "description": "Missing ARIA labels on buttons, links, inputs",
+                "location": "components/, app/",
+                "recommendation": "Add aria-label, aria-describedby where needed",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "A11Y-002",
+                "priority": "HIGH",
+                "category": "Keyboard Navigation",
+                "title": "Ensure full keyboard navigation support",
+                "description": "Some interactive elements not keyboard accessible",
+                "location": "components/Navbar.jsx, app/page.jsx",
+                "recommendation": "Test and fix tab order, focus indicators, Enter/Space handlers",
+                "effort": "MEDIUM",
+                "impact": "HIGH"
+            },
+            {
+                "id": "A11Y-003",
+                "priority": "MEDIUM",
+                "category": "Color Contrast",
+                "title": "Ensure WCAG AA color contrast compliance",
+                "description": "Some text may not meet contrast requirements",
+                "location": "app/globals.css, components/",
+                "recommendation": "Audit and fix color contrast issues",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "A11Y-004",
+                "priority": "MEDIUM",
+                "category": "Screen Readers",
+                "title": "Add screen reader optimizations",
+                "description": "Limited screen reader support",
+                "location": "components/",
+                "recommendation": "Add sr-only text, proper landmarks, heading hierarchy",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "A11Y-005",
+                "priority": "LOW",
+                "category": "Font Sizing",
+                "title": "Implement working font size controls",
+                "description": "Font size controls in navbar (A+, A, A-) are non-functional",
+                "location": "components/Navbar.jsx:109-111",
+                "recommendation": "Implement actual font scaling functionality",
+                "effort": "LOW",
+                "impact": "LOW"
+            }
+        ],
+        "backend_improvements": [
+            {
+                "id": "BE-001",
+                "priority": "MEDIUM",
+                "category": "Data Validation",
+                "title": "Add Mongoose schema validation enhancements",
+                "description": "Basic validation but missing email format, phone validation",
+                "location": "server/models/",
+                "recommendation": "Add custom validators, regex patterns for email, phone, etc.",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "BE-002",
+                "priority": "MEDIUM",
+                "category": "Query Optimization",
+                "title": "Add pagination to all list endpoints",
+                "description": "GET endpoints return all records without pagination",
+                "location": "server/routes/complaints.js, applications.js",
+                "recommendation": "Implement cursor or offset pagination with limit",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "BE-003",
+                "priority": "HIGH",
+                "category": "File Handling",
+                "title": "Implement proper file upload size limits",
+                "description": "No request size limits configured",
+                "location": "server/index.js",
+                "recommendation": "Add express.json({limit: '10mb'}) and file size validation",
+                "effort": "LOW",
+                "impact": "HIGH"
+            },
+            {
+                "id": "BE-004",
+                "priority": "MEDIUM",
+                "category": "API Response",
+                "title": "Standardize API response format",
+                "description": "Inconsistent response structures across endpoints",
+                "location": "server/routes/",
+                "recommendation": "Create response wrapper: {success, data, message, errors}",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "BE-005",
+                "priority": "LOW",
+                "category": "Database Connection",
+                "title": "Add connection pooling configuration",
+                "description": "Using default Mongoose connection settings",
+                "location": "server/config/db.js",
+                "recommendation": "Configure connection pool size, timeouts, retry logic",
+                "effort": "LOW",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "BE-006",
+                "priority": "MEDIUM",
+                "category": "Scheduled Tasks",
+                "title": "Implement cron jobs for scheduled tasks",
+                "description": "Cron package installed but not utilized",
+                "location": "server/",
+                "recommendation": "Add daily reports, complaint SLA reminders, data cleanup jobs",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "BE-007",
+                "priority": "HIGH",
+                "category": "Authorization",
+                "title": "Implement role-based access control (RBAC)",
+                "description": "Basic role check but no granular permissions",
+                "location": "server/routes/",
+                "recommendation": "Create permissions matrix and middleware for fine-grained access control",
+                "effort": "HIGH",
+                "impact": "HIGH"
+            },
+            {
+                "id": "BE-008",
+                "priority": "MEDIUM",
+                "category": "Data Seeding",
+                "title": "Create database seed scripts",
+                "description": "No seed data for development/testing",
+                "location": "server/scripts/",
+                "recommendation": "Create seed scripts for wards, sample users, complaints",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            }
+        ],
+        "code_quality": [
+            {
+                "id": "CQ-001",
+                "priority": "MEDIUM",
+                "category": "Linting",
+                "title": "Fix ESLint configuration and run lint",
+                "description": "ESLint configured but not enforced",
+                "location": "root",
+                "recommendation": "Run 'npm run lint:fix' and fix all issues",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "CQ-002",
+                "priority": "MEDIUM",
+                "category": "Code Formatting",
+                "title": "Run Prettier on entire codebase",
+                "description": "Prettier configured but code not consistently formatted",
+                "location": "root",
+                "recommendation": "Run 'npm run format' and enforce via pre-commit hook",
+                "effort": "LOW",
+                "impact": "LOW"
+            },
+            {
+                "id": "CQ-003",
+                "priority": "LOW",
+                "category": "Code Duplication",
+                "title": "Reduce code duplication",
+                "description": "Auth middleware duplicated, similar components repeated",
+                "location": "server/routes/, components/",
+                "recommendation": "Extract common code to shared utilities",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            },
+            {
+                "id": "CQ-004",
+                "priority": "LOW",
+                "category": "Unused Dependencies",
+                "title": "Audit and remove unused dependencies",
+                "description": "Some packages installed but not used (moment + date-fns + dayjs)",
+                "location": "package.json",
+                "recommendation": "Remove unused deps, audit bundle impact",
+                "effort": "LOW",
+                "impact": "LOW"
+            },
+            {
+                "id": "CQ-005",
+                "priority": "MEDIUM",
+                "category": "Dead Code",
+                "title": "Remove commented code and unused files",
+                "description": "May contain dead code or unused components",
+                "location": "Various",
+                "recommendation": "Conduct code cleanup, remove unused imports",
+                "effort": "LOW",
+                "impact": "LOW"
+            },
+            {
+                "id": "CQ-006",
+                "priority": "LOW",
+                "category": "Naming Conventions",
+                "title": "Standardize naming conventions",
+                "description": "Inconsistent naming (camelCase, snake_case mixed)",
+                "location": "Various",
+                "recommendation": "Enforce consistent naming: camelCase for JS, kebab-case for files",
+                "effort": "MEDIUM",
+                "impact": "LOW"
+            }
+        ],
+        "runtime_script_improvements": [
+            {
+                "id": "SCRIPT-001",
+                "priority": "LOW",
+                "category": "run.sh",
+                "title": "Enhance run.sh with better error handling",
+                "description": "Basic script without robust error handling",
+                "location": "run.sh",
+                "recommendation": "Add set -e, better error messages, check for all prerequisites",
+                "effort": "LOW",
+                "impact": "LOW"
+            },
+            {
+                "id": "SCRIPT-002",
+                "priority": "LOW",
+                "category": "run.sh",
+                "title": "Add production build support to run.sh",
+                "description": "Only supports dev mode",
+                "location": "run.sh",
+                "recommendation": "Add --prod flag for production build and start",
+                "effort": "LOW",
+                "impact": "LOW"
+            },
+            {
+                "id": "SCRIPT-003",
+                "priority": "MEDIUM",
+                "category": "Database Setup",
+                "title": "Create database setup script",
+                "description": "scripts/setup-database.js referenced but doesn't exist",
+                "location": "package.json:20, scripts/",
+                "recommendation": "Create actual setup-database.js script",
+                "effort": "MEDIUM",
+                "impact": "MEDIUM"
+            }
+        ]
+    },
+    "priority_summary": {
+        "critical": 3,
+        "high": 29,
+        "medium": 68,
+        "low": 27
+    },
+    "category_summary": {
+        "security": 12,
+        "testing": 6,
+        "performance": 8,
+        "architecture": 8,
+        "devops_ci_cd": 8,
+        "documentation": 7,
+        "features_functionality": 13,
+        "ui_ux": 8,
+        "accessibility": 5,
+        "backend_improvements": 8,
+        "code_quality": 6,
+        "runtime_scripts": 3
+    },
+    "recommended_immediate_actions": [
+        "SEC-001: Remove hardcoded JWT_SECRET fallback",
+        "SEC-002: Create .env.example file",
+        "SEC-007: Add Helmet.js middleware",
+        "SEC-011: Move auth from localStorage to httpOnly cookies",
+        "TEST-001: Create Jest configuration",
+        "DEVOPS-001: Add GitHub Actions CI/CD workflow",
+        "DEVOPS-002: Create Docker setup",
+        "DOC-001: Add Swagger API documentation",
+        "FEAT-009: Integrate payment gateway",
+        "BE-007: Implement RBAC authorization"
+    ],
+    "notes": [
+        "This analysis is based on current codebase structure as of 2026-01-17",
+        "Implementation effort estimates: LOW (1-4 hours), MEDIUM (4-16 hours), HIGH (16-40 hours), VERY_HIGH (40+ hours)",
+        "Priority levels: CRITICAL (security/data loss risks), HIGH (important for production), MEDIUM (should have), LOW (nice to have)",
+        "Many improvements can be done incrementally",
+        "Focus on security and testing improvements first for production readiness"
+    ]
+}

@@ -1,0 +1,1655 @@
+{
+    "project": {
+        "name": "Majha Umred - AI-Driven Smart City",
+        "version": "2.0.0",
+        "codename": "UMRED-NEXUS",
+        "description": "National-Scale AI-Powered E-Governance & Smart City Initiative - Complete digital transformation of Umred Nagar Parishad with autonomous systems, predictive analytics, and centralized intelligent management for District Nagpur, Maharashtra",
+        "author": "Pusparaj99op",
+        "repository": "https://github.com/Pusparaj99op/Goverment_Project--Live_Civil_Report.git",
+        "license": "SEE LICENSE IN LICENSE",
+        "governmentPartners": [
+            "Ministry of Electronics & Information Technology (MeitY)",
+            "Smart Cities Mission India",
+            "National Informatics Centre (NIC)",
+            "Maharashtra IT Corporation (MahaIT)"
+        ]
+    },
+    "smartCityVision": {
+        "mission": "Transform Umred into India's first fully AI-integrated Tier-3 Smart City with autonomous governance, predictive civic management, and sustainable urban development",
+        "pillars": [
+            "AI-First Governance",
+            "Zero-Touch Service Delivery",
+            "Autonomous Urban Mobility",
+            "Predictive Civic Management",
+            "Sustainable Smart Infrastructure",
+            "Citizen-Centric Digital Democracy"
+        ],
+        "timeline": {
+            "phase1": "2024-2025: Digital Foundation & AI Core",
+            "phase2": "2025-2026: Autonomous Systems Deployment",
+            "phase3": "2026-2027: Full Smart City Integration",
+            "phase4": "2027-2028: Self-Evolving City AI"
+        }
+    },
+    "aiInfrastructure": {
+        "centralAICore": {
+            "name": "UMRED-NEXUS AI",
+            "description": "Central AI brain managing all city operations with real-time decision making",
+            "architecture": {
+                "primaryEngine": "Multi-Agent Transformer Architecture (MATA)",
+                "computeCluster": {
+                    "gpuNodes": "NVIDIA DGX A100 Cluster (8 nodes)",
+                    "tpuNodes": "Google TPU v4 Pod (for inference)",
+                    "cpuNodes": "AMD EPYC 9654 High-Memory Nodes",
+                    "totalTFLOPS": 12000
+                },
+                "models": {
+                    "governanceGPT": {
+                        "type": "Fine-tuned LLaMA-3 70B",
+                        "purpose": "Natural language civic queries, document generation, policy analysis",
+                        "quantization": "INT8 for edge deployment",
+                        "contextWindow": 128000
+                    },
+                    "visionAI": {
+                        "type": "YOLO-X + SAM-2",
+                        "purpose": "CCTV analytics, traffic monitoring, infrastructure inspection",
+                        "fps": 60,
+                        "cameras": 500
+                    },
+                    "predictiveEngine": {
+                        "type": "Temporal Fusion Transformer + Prophet",
+                        "purpose": "Demand forecasting, resource allocation, incident prediction",
+                        "horizons": [
+                            "1h",
+                            "24h",
+                            "7d",
+                            "30d",
+                            "1y"
+                        ]
+                    },
+                    "anomalyDetector": {
+                        "type": "Autoencoder + Isolation Forest Ensemble",
+                        "purpose": "Fraud detection, infrastructure failure prediction, unusual activity detection"
+                    }
+                }
+            },
+            "capabilities": [
+                "Real-time multi-modal decision synthesis",
+                "Autonomous policy recommendation",
+                "Predictive resource allocation",
+                "Natural language citizen interaction",
+                "Self-healing infrastructure management",
+                "Cross-domain correlation analysis"
+            ]
+        },
+        "edgeAINetwork": {
+            "description": "Distributed AI processing at ward/zone level for low-latency operations",
+            "nodes": {
+                "wardProcessors": {
+                    "count": 13,
+                    "hardware": "NVIDIA Jetson Orin AGX",
+                    "capabilities": [
+                        "Local inference",
+                        "Edge analytics",
+                        "Real-time monitoring"
+                    ],
+                    "connectivity": "5G + Fiber backbone"
+                },
+                "intersectionNodes": {
+                    "count": 47,
+                    "hardware": "NVIDIA Jetson Xavier NX",
+                    "capabilities": [
+                        "Traffic AI",
+                        "Signal optimization",
+                        "Pedestrian safety"
+                    ],
+                    "latency": "<10ms"
+                },
+                "mobileUnits": {
+                    "count": 25,
+                    "hardware": "Qualcomm RB5 platform",
+                    "capabilities": [
+                        "Survey AI",
+                        "Inspection automation",
+                        "Citizen service kiosks"
+                    ],
+                    "connectivity": "4G/5G with satellite backup"
+                }
+            },
+            "federatedLearning": {
+                "enabled": true,
+                "purpose": "Privacy-preserving model improvement using distributed ward data",
+                "aggregationFrequency": "hourly",
+                "differentialPrivacy": "enabled"
+            }
+        },
+        "aiServices": {
+            "citizenAssistant": {
+                "name": "UMRED Mitra",
+                "type": "Multimodal Conversational AI",
+                "languages": [
+                    "English",
+                    "Hindi",
+                    "Marathi",
+                    "Gondi"
+                ],
+                "channels": [
+                    "Web Chat",
+                    "WhatsApp",
+                    "Voice IVR",
+                    "Mobile App",
+                    "Kiosks"
+                ],
+                "capabilities": [
+                    "24/7 query resolution",
+                    "Application status tracking",
+                    "Grievance lodging with auto-classification",
+                    "Document assistance",
+                    "Payment guidance",
+                    "Appointment scheduling"
+                ],
+                "avgResolutionTime": "< 2 minutes",
+                "accuracy": "96.7%"
+            },
+            "documentAI": {
+                "name": "DocuParse Pro",
+                "capabilities": [
+                    "OCR with 99.5% accuracy for handwritten Marathi/Hindi",
+                    "Automatic form filling from uploaded documents",
+                    "ID verification (Aadhar, PAN, Voter ID, Ration Card)",
+                    "Signature verification with fraud detection",
+                    "Certificate generation with digital signatures"
+                ],
+                "processingTime": "< 30 seconds",
+                "supportedFormats": [
+                    "PDF",
+                    "JPEG",
+                    "PNG",
+                    "TIFF",
+                    "HEIC"
+                ]
+            },
+            "voiceAI": {
+                "name": "VaniBot",
+                "type": "Automatic Speech Recognition + TTS",
+                "languages": [
+                    "en-IN",
+                    "hi-IN",
+                    "mr-IN"
+                ],
+                "features": [
+                    "Toll-free helpline automation",
+                    "Voice-based service requests",
+                    "Accessibility for visually impaired",
+                    "Multi-speaker diarization for meetings"
+                ],
+                "accuracy": "94.2% WER"
+            }
+        }
+    },
+    "autonomousVehicleSystem": {
+        "name": "UMRED AutoMobility",
+        "description": "Complete autonomous and connected vehicle infrastructure for smart urban mobility",
+        "fleetManagement": {
+            "autonomousFleet": {
+                "municipalBuses": {
+                    "count": 15,
+                    "autonomyLevel": "SAE Level 4",
+                    "routes": 8,
+                    "capacity": "40 passengers",
+                    "technology": {
+                        "lidar": "Velodyne Alpha Prime (128 channels)",
+                        "cameras": "8x surround view + 2x thermal",
+                        "radar": "Continental ARS540 4D imaging",
+                        "v2x": "C-V2X + DSRC dual-mode",
+                        "compute": "NVIDIA DRIVE Thor"
+                    },
+                    "features": [
+                        "Dynamic route optimization",
+                        "Real-time passenger counting",
+                        "Automatic wheelchair ramp deployment",
+                        "Emergency response integration"
+                    ]
+                },
+                "municipalUtilityVehicles": {
+                    "garbageCollectors": {
+                        "count": 8,
+                        "autonomyLevel": "SAE Level 4",
+                        "capabilities": [
+                            "Auto-pickup",
+                            "Fill-level sensing",
+                            "Route optimization"
+                        ]
+                    },
+                    "roadSweepers": {
+                        "count": 4,
+                        "autonomyLevel": "SAE Level 3",
+                        "schedule": "AI-optimized based on foot traffic patterns"
+                    },
+                    "waterTankers": {
+                        "count": 6,
+                        "autonomyLevel": "SAE Level 3",
+                        "distribution": "AI-based demand prediction"
+                    },
+                    "ambulances": {
+                        "count": 3,
+                        "type": "Semi-autonomous with AI assistance",
+                        "features": [
+                            "Green corridor integration",
+                            "Hospital pre-notification",
+                            "Route optimization"
+                        ]
+                    }
+                },
+                "lastMileDelivery": {
+                    "drones": {
+                        "count": 12,
+                        "payload": "5kg",
+                        "range": "15km",
+                        "uses": [
+                            "Document delivery",
+                            "Medicine delivery",
+                            "Sample collection"
+                        ]
+                    },
+                    "deliveryBots": {
+                        "count": 20,
+                        "type": "Sidewalk autonomous robots",
+                        "speed": "6 km/h",
+                        "uses": [
+                            "Certificate delivery",
+                            "Ration kit delivery",
+                            "Small package delivery"
+                        ]
+                    }
+                }
+            }
+        },
+        "trafficManagement": {
+            "name": "UMRED TrafficAI",
+            "components": {
+                "intelligentSignals": {
+                    "count": 47,
+                    "technology": "Adaptive Signal Control Technology (ASCT)",
+                    "features": [
+                        "Real-time traffic density analysis",
+                        "Emergency vehicle preemption",
+                        "Pedestrian priority timing",
+                        "Public transport signal priority",
+                        "Weather-adaptive timing"
+                    ],
+                    "optimization": {
+                        "algorithm": "Deep Reinforcement Learning (PPO)",
+                        "objective": "Minimize average wait time + emissions",
+                        "updateFrequency": "5 seconds"
+                    }
+                },
+                "vehicleDetection": {
+                    "sensors": {
+                        "inductiveLoops": 150,
+                        "aiCameras": 120,
+                        "radarUnits": 60,
+                        "lidarUnits": 20
+                    },
+                    "analytics": [
+                        "Vehicle classification",
+                        "Speed detection",
+                        "Wrong-way detection",
+                        "Accident detection",
+                        "Traffic flow prediction"
+                    ]
+                },
+                "parkingManagement": {
+                    "smartParkingSpaces": 500,
+                    "features": [
+                        "Real-time availability",
+                        "Reservation system",
+                        "Dynamic pricing",
+                        "EV charging integration",
+                        "Automated payment"
+                    ],
+                    "sensors": "Ultrasonic + Camera hybrid",
+                    "app": "Integrated in Umred Citizen App"
+                }
+            },
+            "dashboardMetrics": {
+                "avgTravelTime": "Real-time per route",
+                "congestionIndex": "0-10 scale per zone",
+                "incidentDetection": "< 30 seconds",
+                "signalEfficiency": "% reduction in wait time"
+            }
+        },
+        "evInfrastructure": {
+            "chargingStations": {
+                "fastChargers": {
+                    "count": 20,
+                    "power": "150kW DC",
+                    "locations": "Strategic public points"
+                },
+                "standardChargers": {
+                    "count": 100,
+                    "power": "22kW AC",
+                    "locations": "Residential complexes, offices"
+                },
+                "batterySwapStations": {
+                    "count": 5,
+                    "swapTime": "< 3 minutes",
+                    "targetVehicles": "E-rickshaws, delivery vehicles"
+                }
+            },
+            "gridIntegration": {
+                "v2gEnabled": true,
+                "smartScheduling": "AI-optimized off-peak charging",
+                "renewableIntegration": "Solar canopy at stations"
+            }
+        },
+        "c-v2xNetwork": {
+            "description": "Cellular Vehicle-to-Everything communication network",
+            "coverage": "100% of Umred urban area",
+            "technology": "5G NR C-V2X (Rel-16)",
+            "useCases": [
+                "Vehicle-to-Vehicle (V2V) collision avoidance",
+                "Vehicle-to-Infrastructure (V2I) signal info",
+                "Vehicle-to-Pedestrian (V2P) safety alerts",
+                "Vehicle-to-Network (V2N) cloud services"
+            ],
+            "latency": "< 10ms end-to-end"
+        }
+    },
+    "centralizedTaxDepartment": {
+        "name": "UMRED Revenue Intelligence System (RIS)",
+        "description": "Unified AI-powered tax management platform integrating all municipal revenue streams",
+        "taxTypes": {
+            "propertyTax": {
+                "digitalAssessment": {
+                    "method": "AI + Satellite Imagery + Drone Survey",
+                    "features": [
+                        "Automatic property boundary detection",
+                        "Construction type classification",
+                        "Built-up area calculation (±2% accuracy)",
+                        "Property age estimation",
+                        "Amenity detection (swimming pool, solar panels, etc.)"
+                    ],
+                    "dataIntegration": [
+                        "RERA database",
+                        "Electricity consumption patterns",
+                        "Water connection data",
+                        "Building permission records"
+                    ]
+                },
+                "valuation": {
+                    "model": "Gradient Boosting + Comparable Sales",
+                    "factors": [
+                        "Location",
+                        "Size",
+                        "Age",
+                        "Construction quality",
+                        "Amenities",
+                        "Market trends"
+                    ],
+                    "updateFrequency": "Annual with quarterly adjustments",
+                    "appealProcess": "AI-assisted with human review"
+                },
+                "billing": {
+                    "cycle": "Annual with quarterly EMI option",
+                    "channels": [
+                        "Online portal",
+                        "Mobile app",
+                        "Bank integration",
+                        "UPI",
+                        "Auto-debit"
+                    ],
+                    "smartReminders": {
+                        "channels": [
+                            "SMS",
+                            "Email",
+                            "WhatsApp",
+                            "App notifications"
+                        ],
+                        "timing": "AI-optimized based on payment behavior",
+                        "escalation": "Automated 3-tier reminder system"
+                    }
+                }
+            },
+            "waterTax": {
+                "smartMetering": {
+                    "meterCount": 25000,
+                    "technology": "NB-IoT smart meters",
+                    "features": [
+                        "Real-time consumption monitoring",
+                        "Leak detection",
+                        "Tamper alerts",
+                        "Usage pattern analysis"
+                    ],
+                    "billing": "Monthly auto-generated"
+                },
+                "tieredPricing": {
+                    "slabs": [
+                        {
+                            "range": "0-10 KL",
+                            "rate": "₹5/KL",
+                            "category": "Lifeline"
+                        },
+                        {
+                            "range": "10-20 KL",
+                            "rate": "₹10/KL",
+                            "category": "Standard"
+                        },
+                        {
+                            "range": "20-50 KL",
+                            "rate": "₹15/KL",
+                            "category": "Elevated"
+                        },
+                        {
+                            "range": "50+ KL",
+                            "rate": "₹25/KL",
+                            "category": "Luxury"
+                        }
+                    ],
+                    "commercialMultiplier": 2.5
+                }
+            },
+            "tradeLicense": {
+                "digitalRegistry": {
+                    "features": [
+                        "Online application with AI form assistance",
+                        "Auto-verification with GST/MSME databases",
+                        "Risk-based inspection scheduling",
+                        "Digital certificate with QR verification"
+                    ],
+                    "renewalAutomation": "Auto-renewal for compliant businesses"
+                },
+                "classification": {
+                    "method": "AI-based business categorization",
+                    "dataSource": [
+                        "Application data",
+                        "GST returns",
+                        "Bank transactions",
+                        "Electricity usage"
+                    ]
+                }
+            },
+            "advertisementTax": {
+                "digitalInventory": {
+                    "method": "Computer vision monitoring",
+                    "features": [
+                        "Automatic hoarding detection via drone survey",
+                        "Digital signage registration",
+                        "Size and visibility scoring",
+                        "Illegal advertisement detection"
+                    ]
+                },
+                "dynamicPricing": "Location-based with visibility score"
+            },
+            "entertainmentTax": {
+                "scope": [
+                    "Cinemas",
+                    "Events",
+                    "Parks"
+                ],
+                "integration": "POS system integration for auto-collection"
+            }
+        },
+        "unifiedDashboard": {
+            "features": [
+                "Real-time revenue tracking across all streams",
+                "Ward-wise collection analytics",
+                "Defaulter heatmaps",
+                "Collection efficiency metrics",
+                "Revenue forecasting (ML-based)",
+                "Comparative benchmarking"
+            ],
+            "kpis": [
+                "Collection efficiency (%)",
+                "Demand vs Collection ratio",
+                "Average days to payment",
+                "Digital payment adoption",
+                "Grievance resolution rate"
+            ]
+        }
+    },
+    "aiTaxRecovery": {
+        "name": "UMRED Smart Recovery Engine (SRE)",
+        "description": "AI-driven intelligent tax recovery system with predictive defaulter analysis and optimized collection strategies",
+        "defaulterPrediction": {
+            "model": "XGBoost + LSTM Ensemble",
+            "features": [
+                "Historical payment patterns",
+                "Property characteristics",
+                "Economic indicators",
+                "Seasonal trends",
+                "Life events (job change, family growth)",
+                "Digital engagement score"
+            ],
+            "riskCategories": {
+                "low": {
+                    "probability": "<10%",
+                    "action": "Standard reminders"
+                },
+                "medium": {
+                    "probability": "10-30%",
+                    "action": "Proactive outreach"
+                },
+                "high": {
+                    "probability": "30-60%",
+                    "action": "Personalized intervention"
+                },
+                "critical": {
+                    "probability": ">60%",
+                    "action": "Immediate action plan"
+                }
+            },
+            "predictionAccuracy": "89.3%",
+            "falsePositiveRate": "4.2%"
+        },
+        "intelligentCollection": {
+            "communicationOptimization": {
+                "channels": [
+                    "SMS",
+                    "Email",
+                    "WhatsApp",
+                    "Voice call",
+                    "Physical visit"
+                ],
+                "timing": "AI-optimized per individual (time, day, week)",
+                "personalization": {
+                    "language": "Auto-selected based on preference",
+                    "tone": "Contextual (friendly reminder to formal notice)",
+                    "content": "Personalized with outstanding details, payment options"
+                }
+            },
+            "incentiveEngine": {
+                "earlyPaymentDiscount": {
+                    "slab1": "5% for 30+ days early",
+                    "slab2": "3% for 15+ days early",
+                    "slab3": "1% for 7+ days early"
+                },
+                "emiPlans": {
+                    "eligibility": "AI-assessed based on hardship indicators",
+                    "options": [
+                        "3 months",
+                        "6 months",
+                        "12 months"
+                    ],
+                    "interestRate": "6% p.a. for genuine hardship cases"
+                },
+                "loyaltyRewards": {
+                    "points": "1 point per ₹100 paid on time",
+                    "redemption": "Municipal services, local business discounts"
+                }
+            },
+            "escalationWorkflow": {
+                "level1": {
+                    "trigger": "15 days overdue",
+                    "action": "Automated reminders (SMS, Email)",
+                    "frequency": "Every 3 days"
+                },
+                "level2": {
+                    "trigger": "30 days overdue",
+                    "action": "AI voice call + WhatsApp with payment link",
+                    "frequency": "Weekly"
+                },
+                "level3": {
+                    "trigger": "60 days overdue",
+                    "action": "Official notice + Door-to-door visit scheduling",
+                    "assignee": "Ward-level revenue officer"
+                },
+                "level4": {
+                    "trigger": "90 days overdue",
+                    "action": "Legal notice generation + Asset attachment preparation",
+                    "review": "AI-assisted case prioritization"
+                },
+                "level5": {
+                    "trigger": "180+ days overdue",
+                    "action": "Auction proceedings initiation",
+                    "legal": "Integration with e-Courts system"
+                }
+            }
+        },
+        "fraudDetection": {
+            "techniques": [
+                "Property value discrepancy detection",
+                "Ownership chain analysis",
+                "Multiple identity detection",
+                "Benami property identification",
+                "Assessment manipulation detection"
+            ],
+            "dataFusion": [
+                "Aadhar database (consent-based)",
+                "PAN linkage",
+                "Bank account patterns",
+                "Electricity consumption",
+                "Vehicle registration"
+            ],
+            "alertSystem": {
+                "realTime": true,
+                "prioritization": "Risk-based",
+                "referral": "Anti-corruption cell for high-severity cases"
+            }
+        },
+        "analytics": {
+            "recoveryForecasting": {
+                "model": "ARIMA + Prophet hybrid",
+                "horizons": [
+                    "Monthly",
+                    "Quarterly",
+                    "Annual"
+                ],
+                "factors": [
+                    "Historical trends",
+                    "Economic indicators",
+                    "Policy changes",
+                    "Seasonal patterns"
+                ]
+            },
+            "performanceMetrics": {
+                "collectionRate": "% of demand recovered",
+                "costPerRecovery": "₹ spent per ₹ recovered",
+                "timeToRecovery": "Average days from due date",
+                "digitalAdoption": "% payments via digital channels",
+                "grievanceRate": "Complaints per 1000 demands"
+            }
+        }
+    },
+    "centralizedCityManagement": {
+        "name": "UMRED Integrated Command & Control Center (IC3)",
+        "description": "Unified AI-powered city operations center for real-time monitoring and autonomous management",
+        "infrastructure": {
+            "physicalCenter": {
+                "location": "Umred Nagar Parishad HQ",
+                "size": "5000 sq ft",
+                "features": [
+                    "Video wall (4x6 matrix, 4K per screen)",
+                    "Operator workstations (24)",
+                    "Crisis management room",
+                    "VIP viewing gallery",
+                    "Media briefing room"
+                ]
+            },
+            "redundancy": {
+                "disasterRecoverySite": "Collector Office, Nagpur",
+                "dataReplication": "Real-time sync",
+                "failoverTime": "< 5 minutes"
+            }
+        },
+        "integrationLayers": {
+            "sensorNetwork": {
+                "sources": 2500,
+                "types": [
+                    "CCTV cameras (500)",
+                    "Air quality sensors (50)",
+                    "Water quality sensors (30)",
+                    "Traffic sensors (200)",
+                    "Smart meters (25000)",
+                    "Weather stations (10)",
+                    "Noise monitors (25)",
+                    "Flood sensors (15)"
+                ],
+                "dataIngestion": "Apache Kafka (10M events/sec capacity)"
+            },
+            "systemIntegration": {
+                "internal": [
+                    "Revenue Management System",
+                    "Grievance Redressal System",
+                    "Asset Management System",
+                    "HR & Payroll System",
+                    "File Management System",
+                    "Vehicle Tracking System"
+                ],
+                "external": [
+                    "Maharashtra State Data Center",
+                    "National Emergency Response System (112)",
+                    "National Crime Records Bureau",
+                    "Nagpur MSEDCL (electricity)",
+                    "MWRRA (water resources)",
+                    "IMD (weather)",
+                    "Pollution Control Board"
+                ]
+            }
+        },
+        "aiOperationsCenter": {
+            "situationalAwareness": {
+                "realTimeMonitoring": [
+                    "Live city dashboard with 360° view",
+                    "Automated incident detection",
+                    "Resource utilization tracking",
+                    "Service delivery monitoring",
+                    "Citizen sentiment analysis (social media)"
+                ],
+                "predictiveAlerts": {
+                    "waterlogging": "2-hour advance prediction",
+                    "trafficCongestion": "30-minute prediction",
+                    "airQuality": "24-hour forecast",
+                    "equipmentFailure": "Predictive maintenance alerts"
+                }
+            },
+            "automatedResponse": {
+                "incidentTypes": {
+                    "waterLeakage": {
+                        "detection": "Pressure sensors + AI cameras",
+                        "response": "Auto-isolate section + dispatch crew + notify citizens"
+                    },
+                    "roadAccident": {
+                        "detection": "Traffic cameras + connected vehicles",
+                        "response": "Alert emergency services + clear traffic + notify hospitals"
+                    },
+                    "garbageOverflow": {
+                        "detection": "Fill-level sensors",
+                        "response": "Re-route collection vehicle + schedule pickup"
+                    },
+                    "streetLightFailure": {
+                        "detection": "Smart pole sensors",
+                        "response": "Log complaint + assign maintenance + adjust adjacent lights"
+                    }
+                }
+            }
+        },
+        "serviceDeliveryPlatform": {
+            "omniChannelAccess": {
+                "channels": [
+                    "Web portal (majhaumred.gov.in)",
+                    "Mobile app (iOS + Android)",
+                    "WhatsApp bot",
+                    "Telegram bot",
+                    "IVRS (toll-free 1800-xxx-xxxx)",
+                    "Physical CSCs (13 ward offices)",
+                    "AI kiosks (25 locations)"
+                ],
+                "unifiedQueue": true,
+                "slaTracking": "Real-time with escalation"
+            },
+            "servicePortfolio": {
+                "count": 150,
+                "categories": [
+                    "Revenue & Taxation (12 services)",
+                    "Building & Planning (15 services)",
+                    "Water & Sanitation (10 services)",
+                    "Health & Hygiene (8 services)",
+                    "Certificates & Records (20 services)",
+                    "Licenses & Permits (18 services)",
+                    "Grievances & Complaints (15 services)",
+                    "Welfare Schemes (25 services)",
+                    "Infrastructure (12 services)",
+                    "Emergency Services (8 services)",
+                    "Others (7 services)"
+                ],
+                "digitalFirst": "85% services fully online",
+                "avgProcessingTime": "2.4 days (vs 14 days manual)"
+            }
+        }
+    },
+    "advancedNagarParishad": {
+        "name": "UMRED SmartGov 2.0",
+        "description": "Next-generation municipal governance with AI-assisted decision making and predictive administration",
+        "smartGovernance": {
+            "councilSupport": {
+                "aiMeetingAssistant": {
+                    "features": [
+                        "Auto-transcription in Marathi/English",
+                        "Real-time agenda tracking",
+                        "Decision point identification",
+                        "Action item extraction",
+                        "Historical reference lookup"
+                    ]
+                },
+                "policyAnalyzer": {
+                    "capabilities": [
+                        "Impact assessment simulation",
+                        "Budget implication analysis",
+                        "Citizen sentiment prediction",
+                        "Best practice recommendation",
+                        "Legal compliance check"
+                    ]
+                },
+                "votingSystem": {
+                    "type": "Blockchain-based transparent voting",
+                    "features": [
+                        "Tamper-proof records",
+                        "Real-time results",
+                        "Audit trail"
+                    ]
+                }
+            },
+            "performanceManagement": {
+                "employeeTracking": {
+                    "biometricAttendance": "Facial recognition + geofencing",
+                    "taskManagement": "AI-assigned based on skillset and workload",
+                    "performanceScoring": "Objective KPI-based with citizen feedback"
+                },
+                "departmentKPIs": {
+                    "realTime": true,
+                    "benchmarking": "Comparison with similar ULBs",
+                    "autoReporting": "Daily/Weekly/Monthly reports"
+                }
+            }
+        },
+        "financialManagement": {
+            "aiBudgeting": {
+                "forecastModel": "Zero-based budgeting with ML optimization",
+                "features": [
+                    "Revenue prediction",
+                    "Expenditure categorization",
+                    "Fund flow optimization",
+                    "Grant utilization tracking",
+                    "Variance analysis"
+                ]
+            },
+            "expenditureControl": {
+                "realTimeTracking": true,
+                "thresholdAlerts": "Auto notifications for budget overruns",
+                "vendorRating": "AI-based vendor performance scoring"
+            },
+            "auditReadiness": {
+                "autoDocumentation": "All transactions AI-documented",
+                "complianceChecker": "Real-time audit compliance monitoring",
+                "reportGeneration": "One-click AG/CAG format reports"
+            }
+        },
+        "assetManagement": {
+            "digitalTwin": {
+                "scope": "All municipal infrastructure",
+                "features": [
+                    "3D model of city infrastructure",
+                    "Real-time sensor overlay",
+                    "Maintenance history",
+                    "Lifecycle prediction",
+                    "What-if scenarios"
+                ],
+                "technology": "Unity + Azure Digital Twins"
+            },
+            "predictiveMaintenance": {
+                "assets": [
+                    "Roads",
+                    "Buildings",
+                    "Vehicles",
+                    "Pumps",
+                    "Streetlights",
+                    "Manholes"
+                ],
+                "model": "Time-series anomaly detection + survival analysis",
+                "savings": "30% reduction in reactive maintenance costs"
+            },
+            "gisIntegration": {
+                "platform": "Custom on ArcGIS Enterprise",
+                "layers": 50,
+                "features": [
+                    "Property boundaries",
+                    "Utility networks (water, drainage, electricity)",
+                    "Road network",
+                    "Land use",
+                    "Environmental zones"
+                ]
+            }
+        },
+        "citizenEngagement": {
+            "participatoryBudgeting": {
+                "platform": "Web + App based voting",
+                "allocation": "10% of capital budget",
+                "process": [
+                    "Ward meetings",
+                    "Online idea submission",
+                    "AI clustering",
+                    "Public voting",
+                    "Implementation tracking"
+                ]
+            },
+            "grievanceRedressal": {
+                "name": "UMRED Samadhan",
+                "features": [
+                    "Multi-channel complaint filing",
+                    "AI-based categorization and routing",
+                    "Auto-priority assignment",
+                    "SLA tracking with escalation",
+                    "Citizen feedback loop",
+                    "Root cause analysis"
+                ],
+                "sla": {
+                    "acknowledgment": "< 1 hour",
+                    "firstResponse": "< 24 hours",
+                    "resolution": "Category-wise (1-15 days)"
+                }
+            },
+            "publicHearing": {
+                "virtualHearing": "AI-moderated video conferencing",
+                "sentimentTracking": "Real-time citizen pulse",
+                "recordKeeping": "Blockchain-verified minutes"
+            }
+        }
+    },
+    "technicalArchitecture": {
+        "cloudInfrastructure": {
+            "primary": {
+                "provider": "Azure Government Cloud (India Central)",
+                "services": [
+                    "Azure Kubernetes Service (AKS) - Container orchestration",
+                    "Azure Cosmos DB - Distributed database",
+                    "Azure Event Hubs - Real-time streaming",
+                    "Azure Machine Learning - Model training/deployment",
+                    "Azure Cognitive Services - AI APIs",
+                    "Azure IoT Hub - Device management",
+                    "Azure Synapse Analytics - Data warehouse"
+                ],
+                "certifications": [
+                    "ISO 27001",
+                    "SOC 2",
+                    "MEITY empaneled"
+                ]
+            },
+            "secondary": {
+                "provider": "AWS GovCloud (Mumbai)",
+                "purpose": "Disaster recovery + specific workloads",
+                "services": [
+                    "Amazon EKS",
+                    "Amazon DynamoDB",
+                    "Amazon SageMaker"
+                ]
+            },
+            "onPremise": {
+                "purpose": "Sensitive data + Edge processing",
+                "location": "Umred Nagar Parishad Data Center",
+                "specs": {
+                    "servers": "10x Dell PowerEdge R750",
+                    "storage": "500TB NetApp AFF",
+                    "network": "Cisco Nexus 5000 series"
+                }
+            }
+        },
+        "microservicesArchitecture": {
+            "containerOrchestration": "Kubernetes 1.28+",
+            "serviceMesh": "Istio 1.20",
+            "apiGateway": "Kong Enterprise",
+            "services": {
+                "core": [
+                    "citizen-service",
+                    "auth-service",
+                    "notification-service",
+                    "payment-service",
+                    "document-service",
+                    "workflow-service"
+                ],
+                "domain": [
+                    "tax-service",
+                    "grievance-service",
+                    "license-service",
+                    "property-service",
+                    "water-service",
+                    "building-service"
+                ],
+                "ai": [
+                    "nlp-service",
+                    "vision-service",
+                    "prediction-service",
+                    "recommendation-service"
+                ],
+                "infrastructure": [
+                    "logging-service (ELK Stack)",
+                    "monitoring-service (Prometheus + Grafana)",
+                    "tracing-service (Jaeger)",
+                    "config-service (Consul)"
+                ]
+            },
+            "messaging": {
+                "async": "Apache Kafka 3.5",
+                "sync": "gRPC with Protocol Buffers"
+            }
+        },
+        "dataArchitecture": {
+            "dataLake": {
+                "platform": "Azure Data Lake Storage Gen2",
+                "format": "Delta Lake (Apache Spark compatible)",
+                "zones": [
+                    "Raw",
+                    "Curated",
+                    "Processed",
+                    "Serving"
+                ],
+                "governance": "Azure Purview for cataloging"
+            },
+            "databases": {
+                "operational": {
+                    "primary": "PostgreSQL 16 (Citus for sharding)",
+                    "cache": "Redis Cluster 7.2",
+                    "search": "Elasticsearch 8.12"
+                },
+                "analytical": {
+                    "warehouse": "Azure Synapse Analytics",
+                    "olap": "Apache Druid",
+                    "timeSeries": "TimescaleDB"
+                },
+                "specialized": {
+                    "graph": "Neo4j 5.x (relationship analysis)",
+                    "vector": "Pinecone (AI embeddings)",
+                    "blockchain": "Hyperledger Fabric (audit trails)"
+                }
+            },
+            "dataQuality": {
+                "framework": "Great Expectations",
+                "monitoring": "Real-time data quality dashboards",
+                "alerting": "Auto-notification on quality degradation"
+            }
+        },
+        "securityArchitecture": {
+            "zeroTrust": {
+                "implementation": "Never trust, always verify",
+                "components": [
+                    "Identity-centric security (Azure AD)",
+                    "Micro-segmentation",
+                    "Continuous verification",
+                    "Least privilege access"
+                ]
+            },
+            "encryption": {
+                "atRest": "AES-256 with customer-managed keys",
+                "inTransit": "TLS 1.3",
+                "inUse": "Azure Confidential Computing"
+            },
+            "compliance": {
+                "standards": [
+                    "IT Act 2000 compliance",
+                    "GIGW 3.0 (Government of India Guidelines for Websites)",
+                    "Data Protection Bill readiness",
+                    "STQC certification",
+                    "ISO 27001:2022"
+                ],
+                "auditing": "Quarterly third-party VAPT"
+            },
+            "incidentResponse": {
+                "soc": "24x7 Security Operations Center",
+                "siem": "Microsoft Sentinel",
+                "automaticResponse": "SOAR playbooks for common threats"
+            }
+        },
+        "apiEcosystem": {
+            "publicAPIs": {
+                "openData": {
+                    "datasets": 50,
+                    "formats": [
+                        "JSON",
+                        "CSV",
+                        "XML",
+                        "GeoJSON"
+                    ],
+                    "categories": [
+                        "Demographics",
+                        "Finances",
+                        "Services",
+                        "Infrastructure",
+                        "Environment"
+                    ]
+                },
+                "serviceAPIs": {
+                    "version": "v2",
+                    "style": "RESTful + GraphQL",
+                    "authentication": "OAuth 2.0 + API Keys",
+                    "rateLimit": "1000 req/min for public, 10000 for partners"
+                }
+            },
+            "partnerIntegrations": {
+                "banks": [
+                    "SBI",
+                    "HDFC",
+                    "ICICI",
+                    "Local cooperative banks"
+                ],
+                "payment": [
+                    "NPCI (UPI)",
+                    "PayTM",
+                    "PhonePe",
+                    "BBPS"
+                ],
+                "identity": [
+                    "DigiLocker",
+                    "UIDAI (Aadhar)",
+                    "NSDL (PAN)"
+                ],
+                "government": [
+                    "State SDC",
+                    "NIC",
+                    "GSTN",
+                    "MCA21"
+                ]
+            }
+        }
+    },
+    "techStack": {
+        "frontend": {
+            "framework": "Next.js 14 (App Router)",
+            "uiLibrary": "Material-UI (MUI) 5 + shadcn/ui",
+            "styling": "TailwindCSS 3 + CSS Modules",
+            "stateManagement": {
+                "client": "Zustand + React Query (TanStack)",
+                "server": "Next.js Server Actions + RSC"
+            },
+            "routing": "Next.js App Router with parallel routes",
+            "fonts": [
+                "Inter",
+                "Merriweather",
+                "Noto Sans Devanagari",
+                "Roboto",
+                "Material Icons"
+            ],
+            "maps": "Leaflet + MapLibre GL JS + Custom GIS layers",
+            "charts": "Apache ECharts + Chart.js + D3.js",
+            "realtime": "Socket.io + SSE for live updates",
+            "forms": "React Hook Form + Zod validation",
+            "accessibility": "WCAG 2.1 AA compliant"
+        },
+        "backend": {
+            "runtime": "Node.js 20 LTS + Bun (for specific services)",
+            "framework": "Express.js 4 + Fastify 4 (high-performance APIs)",
+            "database": {
+                "primary": "PostgreSQL 16 with Citus extension",
+                "document": "MongoDB 7 (Mongoose ODM)",
+                "cache": "Redis 7.2 Cluster",
+                "search": "Elasticsearch 8.12"
+            },
+            "authentication": {
+                "protocol": "OAuth 2.0 / OpenID Connect",
+                "provider": "Keycloak",
+                "tokens": "JWT (asymmetric RS256)",
+                "mfa": "TOTP + SMS OTP + DigiLocker"
+            },
+            "messageQueue": "Apache Kafka 3.5 + Redis Streams",
+            "containerization": "Docker + Kubernetes (AKS)"
+        },
+        "aiMl": {
+            "training": {
+                "platform": "Azure Machine Learning + PyTorch 2.0",
+                "compute": "NVIDIA A100 clusters",
+                "mlops": "MLflow + Kubeflow"
+            },
+            "inference": {
+                "serving": "NVIDIA Triton Inference Server",
+                "edge": "ONNX Runtime + TensorRT",
+                "llm": "vLLM for language models"
+            },
+            "libraries": [
+                "transformers (Hugging Face)",
+                "langchain",
+                "sentence-transformers",
+                "scikit-learn",
+                "xgboost",
+                "prophet",
+                "opencv-python",
+                "ultralytics (YOLO)"
+            ]
+        },
+        "devOps": {
+            "cicd": "GitHub Actions + Azure DevOps Pipelines",
+            "iac": "Terraform + Pulumi",
+            "gitops": "ArgoCD",
+            "monitoring": {
+                "metrics": "Prometheus + Grafana",
+                "logs": "ELK Stack (Elasticsearch, Logstash, Kibana)",
+                "traces": "Jaeger + OpenTelemetry",
+                "apm": "Elastic APM"
+            },
+            "alerting": "PagerDuty + Opsgenie",
+            "secrets": "HashiCorp Vault"
+        },
+        "additionalLibraries": [
+            "axios",
+            "chart.js",
+            "react-chartjs-2",
+            "d3",
+            "leaflet",
+            "react-leaflet",
+            "socket.io",
+            "react-hook-form",
+            "react-toastify",
+            "zustand",
+            "swr",
+            "antd",
+            "@tanstack/react-query",
+            "zod",
+            "date-fns",
+            "numeral",
+            "lodash",
+            "pdf-lib",
+            "qrcode"
+        ]
+    },
+    "directory": {
+        "root": "/home/pranay/Documents/GitHub/Goverment_Project--Live_Civil_Report",
+        "structure": {
+            "app/": "Next.js 14 App Router pages and components",
+            "components/": "Shared React components (Navbar, Footer, UI)",
+            "lib/": "Utility functions, API clients, helpers",
+            "hooks/": "Custom React hooks",
+            "server/": "Express.js backend server",
+            "ai/": "AI/ML models, inference scripts",
+            "public/": "Static assets (images, icons)",
+            "config/": "Configuration files",
+            ".husky/": "Git hooks for code quality",
+            ".vscode/": "VS Code settings"
+        }
+    },
+    "files": {
+        "configuration": [
+            {
+                "path": "package.json",
+                "lines": 169,
+                "description": "Project configuration with 60+ dependencies for full-stack development, includes scripts for dev, build, test, database operations"
+            },
+            {
+                "path": "tailwind.config.js",
+                "lines": 12,
+                "description": "TailwindCSS configuration"
+            },
+            {
+                "path": "postcss.config.js",
+                "lines": 6,
+                "description": "PostCSS configuration for TailwindCSS"
+            }
+        ],
+        "documentation": [
+            {
+                "path": "README.md",
+                "lines": 436,
+                "description": "Comprehensive project documentation with overview, features, tech stack, architecture, roadmap, and contribution guidelines"
+            },
+            {
+                "path": "SERVER_REQUIREMENTS.md",
+                "lines": 800,
+                "description": "Detailed server requirements and AI automation implementation plans for Azure and AWS deployment"
+            },
+            {
+                "path": "LICENSE",
+                "description": "Project license file"
+            }
+        ],
+        "server": {
+            "description": "Express.js backend server with MongoDB integration and JWT authentication",
+            "files": [
+                {
+                    "path": "server/index.js",
+                    "lines": 27,
+                    "exports": null,
+                    "description": "Express server entry point - sets up CORS, JSON parsing, routes, and listens on port 5000",
+                    "dependencies": [
+                        "express",
+                        "dotenv",
+                        "cors",
+                        "./config/db",
+                        "./routes/auth"
+                    ]
+                },
+                {
+                    "path": "server/config/db.js",
+                    "lines": 15,
+                    "exports": "connectDB",
+                    "description": "MongoDB connection using Mongoose, connects to localhost:27017/maja_umred_db by default",
+                    "dependencies": [
+                        "mongoose"
+                    ]
+                },
+                {
+                    "path": "server/models/User.js",
+                    "lines": 56,
+                    "exports": "User (Mongoose Model)",
+                    "description": "User schema with name, email, password (hashed), role (citizen/admin/official), ward, idProofType, idProofNumber",
+                    "schema": {
+                        "name": "String (required)",
+                        "email": "String (required, unique)",
+                        "password": "String (required, auto-hashed)",
+                        "role": "String (enum: citizen/admin/official, default: citizen)",
+                        "ward": "String (default: General)",
+                        "idProofType": "String (required)",
+                        "idProofNumber": "String (required)",
+                        "createdAt": "Date (auto)"
+                    }
+                },
+                {
+                    "path": "server/routes/auth.js",
+                    "lines": 78,
+                    "exports": "Express Router",
+                    "description": "Authentication routes with POST /register and POST /login endpoints, returns JWT token on success",
+                    "endpoints": [
+                        {
+                            "method": "POST",
+                            "path": "/api/auth/register",
+                            "description": "Register new user with name, email, password, ward, idProofType, idProofNumber"
+                        },
+                        {
+                            "method": "POST",
+                            "path": "/api/auth/login",
+                            "description": "Authenticate user with email/password, returns JWT token"
+                        }
+                    ]
+                }
+            ]
+        },
+        "frontend": {
+            "description": "Next.js 14 App Router frontend with Material-UI components",
+            "layout": {
+                "path": "app/layout.jsx",
+                "lines": 31,
+                "description": "Root layout with Google Fonts, Material Icons, Navbar, main content area, and Footer"
+            },
+            "globalStyles": {
+                "path": "app/globals.css",
+                "lines": 41,
+                "description": "TailwindCSS imports, CSS variables for Indian tricolor theme"
+            },
+            "pages": [
+                {
+                    "path": "app/page.jsx",
+                    "route": "/",
+                    "lines": 697,
+                    "description": "Home page with government-styled header, 3-column layout, ward performance, and leadership display"
+                },
+                {
+                    "path": "app/about/page.jsx",
+                    "route": "/about",
+                    "lines": 426,
+                    "description": "About Umred Nagar Parishad with history, vision, and milestones"
+                },
+                {
+                    "path": "app/contact/page.jsx",
+                    "route": "/contact",
+                    "lines": 428,
+                    "description": "Contact page with form and Google Maps"
+                },
+                {
+                    "path": "app/services/page.jsx",
+                    "route": "/services",
+                    "lines": 359,
+                    "description": "Services directory page with 12 municipal services"
+                },
+                {
+                    "path": "app/dashboard/page.jsx",
+                    "route": "/dashboard",
+                    "lines": 465,
+                    "description": "Citizen dashboard with profile, applications, and payments",
+                    "requiresAuth": true
+                },
+                {
+                    "path": "app/umred-gov-dashboard/page.jsx",
+                    "route": "/umred-gov-dashboard",
+                    "lines": 388,
+                    "description": "Government officials dashboard with ward-wise performance"
+                },
+                {
+                    "path": "app/admin-dashboard/page.jsx",
+                    "route": "/admin-dashboard",
+                    "lines": 457,
+                    "description": "System admin dashboard with health monitoring"
+                }
+            ],
+            "authPages": [
+                {
+                    "path": "app/auth/login/page.jsx",
+                    "route": "/auth/login",
+                    "lines": 280,
+                    "description": "Citizen login page with government-styled UI"
+                },
+                {
+                    "path": "app/auth/register/page.jsx",
+                    "route": "/auth/register",
+                    "lines": 423,
+                    "description": "Citizen registration with ward selection and ID proof"
+                }
+            ]
+        },
+        "sharedComponents": [
+            {
+                "path": "components/Navbar.jsx",
+                "lines": 364,
+                "description": "Main navigation with government-styled header and leadership avatars"
+            },
+            {
+                "path": "components/Footer.jsx",
+                "lines": 82,
+                "description": "Government-styled footer with tricolor theme"
+            },
+            {
+                "path": "app/components/MainCarousel.jsx",
+                "lines": 155,
+                "description": "Auto-rotating image carousel component"
+            }
+        ]
+    },
+    "features": {
+        "implemented": [
+            "User registration with ward selection and ID proof verification",
+            "User login with JWT authentication",
+            "Citizen dashboard with profile and applications",
+            "Government officials dashboard for ward monitoring",
+            "Admin dashboard for system health",
+            "Services directory with municipal services",
+            "Contact page with form and Google Maps",
+            "About page with history and vision",
+            "Responsive navigation",
+            "Government-styled UI with Indian tricolor theme",
+            "Bilingual support (English/Marathi)",
+            "Home page carousel"
+        ],
+        "aiPowered": {
+            "planned": [
+                "UMRED Mitra - 24/7 AI Citizen Assistant",
+                "GovernanceGPT - Policy analysis and document generation",
+                "VisionAI - CCTV analytics and traffic monitoring",
+                "DocuParse Pro - Intelligent document processing",
+                "Predictive Engine - Demand forecasting and anomaly detection",
+                "Smart Recovery Engine - AI tax collection optimization",
+                "TrafficAI - Autonomous signal control",
+                "Digital Twin - City infrastructure simulation"
+            ]
+        },
+        "autonomous": {
+            "planned": [
+                "Self-driving municipal buses (SAE Level 4)",
+                "Autonomous garbage collection vehicles",
+                "Delivery drones for document/medicine",
+                "Smart traffic signal optimization",
+                "Predictive infrastructure maintenance",
+                "Automated utility billing and collection"
+            ]
+        },
+        "centralized": {
+            "planned": [
+                "Unified Tax Portal (all revenue streams)",
+                "Integrated Command & Control Center",
+                "Single-window service delivery",
+                "Centralized citizen database",
+                "Unified grievance management",
+                "Cross-department workflow automation"
+            ]
+        }
+    },
+    "routes": {
+        "public": [
+            {
+                "path": "/",
+                "name": "Home",
+                "component": "app/page.jsx"
+            },
+            {
+                "path": "/about",
+                "name": "About Us",
+                "component": "app/about/page.jsx"
+            },
+            {
+                "path": "/contact",
+                "name": "Contact",
+                "component": "app/contact/page.jsx"
+            },
+            {
+                "path": "/services",
+                "name": "Services",
+                "component": "app/services/page.jsx"
+            },
+            {
+                "path": "/auth/login",
+                "name": "Login",
+                "component": "app/auth/login/page.jsx"
+            },
+            {
+                "path": "/auth/register",
+                "name": "Register",
+                "component": "app/auth/register/page.jsx"
+            }
+        ],
+        "protected": [
+            {
+                "path": "/dashboard",
+                "name": "Citizen Dashboard",
+                "component": "app/dashboard/page.jsx",
+                "requiresAuth": true
+            }
+        ],
+        "internal": [
+            {
+                "path": "/umred-gov-dashboard",
+                "name": "Government Dashboard",
+                "component": "app/umred-gov-dashboard/page.jsx"
+            },
+            {
+                "path": "/admin-dashboard",
+                "name": "Admin Dashboard",
+                "component": "app/admin-dashboard/page.jsx"
+            }
+        ],
+        "api": [
+            {
+                "method": "POST",
+                "path": "/api/auth/login",
+                "description": "Proxy to Express login"
+            },
+            {
+                "method": "POST",
+                "path": "/api/auth/register",
+                "description": "Proxy to Express register"
+            }
+        ],
+        "plannedAI": [
+            {
+                "path": "/api/ai/chat",
+                "description": "UMRED Mitra conversational AI endpoint"
+            },
+            {
+                "path": "/api/ai/document",
+                "description": "DocuParse document processing"
+            },
+            {
+                "path": "/api/ai/predict",
+                "description": "Prediction engine interface"
+            },
+            {
+                "path": "/api/ai/vision",
+                "description": "VisionAI analytics"
+            }
+        ]
+    },
+    "scripts": {
+        "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" - Runs both servers",
+        "dev:backend": "nodemon server/index.js - Starts Express on port 5000",
+        "dev:frontend": "next dev - Starts Next.js on port 3000",
+        "build": "next build - Builds production Next.js bundle",
+        "start": "node server/index.js - Starts production Express server",
+        "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
+        "test": "jest --coverage",
+        "test:e2e": "cypress run"
+    },
+    "environment": {
+        "required": {
+            "MONGODB_URI": "MongoDB connection string",
+            "JWT_SECRET": "Secret key for JWT tokens",
+            "PORT": "Express server port"
+        },
+        "aiServices": {
+            "AZURE_OPENAI_API_KEY": "Azure OpenAI API key for GovernanceGPT",
+            "AZURE_OPENAI_ENDPOINT": "Azure OpenAI endpoint",
+            "AZURE_ML_WORKSPACE": "Azure ML workspace for model deployment",
+            "AZURE_IOT_HUB": "IoT Hub for sensor data ingestion",
+            "VISION_API_KEY": "Computer Vision API key",
+            "SPEECH_API_KEY": "Speech Services API key"
+        },
+        "cloudServices": {
+            "AZURE_STORAGE_CONNECTION": "Blob storage for documents",
+            "REDIS_URL": "Redis cache connection",
+            "KAFKA_BROKERS": "Kafka broker list",
+            "ELASTICSEARCH_URL": "Search cluster endpoint"
+        },
+        "integrations": {
+            "DIGILOCKER_CLIENT_ID": "DigiLocker integration",
+            "UIDAI_AUA_CODE": "Aadhar verification",
+            "GST_API_KEY": "GST portal integration",
+            "BBPS_AGENT_ID": "BBPS payment integration",
+            "SMS_GATEWAY_KEY": "SMS notifications",
+            "EMAIL_SMTP_HOST": "Email service"
+        }
+    },
+    "statistics": {
+        "totalFiles": 32,
+        "totalLines": {
+            "frontend": 4200,
+            "backend": 176,
+            "config": 220,
+            "documentation": 1250,
+            "total": 5846
+        },
+        "pages": 13,
+        "components": 5,
+        "apiRoutes": 2,
+        "serverRoutes": 2,
+        "plannedAIModels": 8,
+        "plannedMicroservices": 24,
+        "plannedAPIs": 150,
+        "plannedSensorIntegrations": 2500
+    },
+    "roadmap": {
+        "q1_2024": {
+            "name": "Foundation",
+            "items": [
+                "Core web platform launch",
+                "User authentication system",
+                "Basic service portal",
+                "Initial AI chatbot (rule-based)"
+            ],
+            "status": "completed"
+        },
+        "q2_2024": {
+            "name": "AI Integration",
+            "items": [
+                "UMRED Mitra AI assistant",
+                "Document processing AI",
+                "Smart tax assessment pilot",
+                "Traffic monitoring integration"
+            ],
+            "status": "in_progress"
+        },
+        "q3_2024": {
+            "name": "Automation",
+            "items": [
+                "Automated tax recovery",
+                "Smart traffic signals (Phase 1)",
+                "Grievance auto-routing",
+                "Predictive maintenance pilot"
+            ],
+            "status": "planned"
+        },
+        "q4_2024": {
+            "name": "Smart Mobility",
+            "items": [
+                "Autonomous bus pilot (2 routes)",
+                "EV charging network",
+                "Smart parking system",
+                "Connected vehicle platform"
+            ],
+            "status": "planned"
+        },
+        "2025": {
+            "name": "Full Integration",
+            "items": [
+                "Complete IC3 deployment",
+                "City-wide autonomous fleet",
+                "Full AI tax system",
+                "Digital Twin operational",
+                "Zero-touch service delivery"
+            ],
+            "status": "vision"
+        }
+    }
+}

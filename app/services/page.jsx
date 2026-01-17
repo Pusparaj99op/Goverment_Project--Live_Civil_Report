@@ -63,7 +63,7 @@ export default function ServicesPage() {
             titleHi: 'मालमत्ता कर',
             icon: '🏠',
             desc: 'Pay property tax online, download receipts, check assessment details.',
-            link: '/under-construction',
+            link: '/services/property-tax',
             color: '#7b1fa2'
         },
         {
@@ -79,7 +79,7 @@ export default function ServicesPage() {
             titleHi: 'जन्म/मृत्यू प्रमाणपत्र',
             icon: '📜',
             desc: 'Apply for birth and death certificates online. Download certified copies.',
-            link: '/under-construction',
+            link: '/services/birth-certificate',
             color: '#5d4037'
         },
         {
@@ -95,7 +95,7 @@ export default function ServicesPage() {
             titleHi: 'पाणी कर भरणा',
             icon: '💳',
             desc: 'Pay water bills online, view consumption history, download payment receipts.',
-            link: '/under-construction',
+            link: '/services/water-bill',
             color: '#1565c0'
         },
         {
@@ -110,8 +110,8 @@ export default function ServicesPage() {
 
     const quickLinks = [
         { text: 'File a Complaint', href: '/dashboard', icon: '📝' },
-        { text: 'Track Application', href: '/dashboard', icon: '🔍' },
-        { text: 'Pay Bills Online', href: '/under-construction', icon: '💳' },
+        { text: 'Track Application', href: '/services/track-application', icon: '🔍' },
+        { text: 'Pay Bills Online', href: '/services/water-bill', icon: '💳' },
         { text: 'Download Forms', href: '/under-construction', icon: '📥' },
         { text: 'RTI Application', href: '/under-construction', icon: '📋' },
     ];
@@ -140,38 +140,56 @@ export default function ServicesPage() {
 
                 <Container maxWidth="xl">
                     <Box sx={{ position: 'relative', zIndex: 1 }}>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-                            <img src="/emblem_new.png" alt="Government Emblem" style={{ height: 60, filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }} />
-                            <Box>
-                                <Typography variant="caption" sx={{ color: '#FF9933', fontWeight: 'bold', letterSpacing: 1 }}>
-                                    UMRED NAGAR PARISHAD
+                        <Grid container spacing={2} alignItems="center">
+                            <Grid item xs={12} md={8}>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+                                    <img src="/emblem_new.png" alt="Government Emblem" style={{ height: 60, filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }} />
+                                    <Box>
+                                        <Typography variant="caption" sx={{ color: '#FF9933', fontWeight: 'bold', letterSpacing: 1 }}>
+                                            UMRED NAGAR PARISHAD
+                                        </Typography>
+                                        <Typography variant="caption" sx={{ display: 'block', opacity: 0.8 }}>
+                                            उमरेड नगरपरिषद | District Nagpur
+                                        </Typography>
+                                    </Box>
+                                </Box>
+
+                                <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 1, fontSize: { xs: '1.8rem', md: '2.5rem' }, fontFamily: 'Merriweather, serif' }}>
+                                    Our Services
                                 </Typography>
-                                <Typography variant="caption" sx={{ display: 'block', opacity: 0.8 }}>
-                                    उमरेड नगरपरिषद | District Nagpur
+                                <Typography variant="h5" sx={{ color: '#FF9933', mb: 2, fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
+                                    नागरिक सेवा | Citizen Services
                                 </Typography>
-                            </Box>
-                        </Box>
 
-                        <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 1, fontSize: { xs: '1.8rem', md: '2.5rem' }, fontFamily: 'Merriweather, serif' }}>
-                            Our Services
-                        </Typography>
-                        <Typography variant="h5" sx={{ color: '#FF9933', mb: 2, fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
-                            नागरिक सेवा | Citizen Services
-                        </Typography>
+                                <Box sx={{ bgcolor: 'rgba(255,255,255,0.1)', p: 2, borderRadius: 1, borderLeft: '4px solid #FF9933', maxWidth: 700 }}>
+                                    <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+                                        Access all municipal services online. From filing grievances to paying taxes,
+                                        all services are available 24x7 for citizens of Umred.
+                                    </Typography>
+                                </Box>
 
-                        <Box sx={{ bgcolor: 'rgba(255,255,255,0.1)', p: 2, borderRadius: 1, borderLeft: '4px solid #FF9933', maxWidth: 700 }}>
-                            <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
-                                Access all municipal services online. From filing grievances to paying taxes,
-                                all services are available 24x7 for citizens of Umred.
-                            </Typography>
-                        </Box>
-
-                        {/* Tricolor Bar */}
-                        <Box sx={{ display: 'flex', mt: 3, gap: 0 }}>
-                            <Box sx={{ width: 60, height: 6, bgcolor: '#FF9933', borderRadius: '3px 0 0 3px' }} />
-                            <Box sx={{ width: 60, height: 6, bgcolor: '#fff' }} />
-                            <Box sx={{ width: 60, height: 6, bgcolor: '#138808', borderRadius: '0 3px 3px 0' }} />
-                        </Box>
+                                {/* Tricolor Bar */}
+                                <Box sx={{ display: 'flex', mt: 3, gap: 0 }}>
+                                    <Box sx={{ width: 60, height: 6, bgcolor: '#FF9933', borderRadius: '3px 0 0 3px' }} />
+                                    <Box sx={{ width: 60, height: 6, bgcolor: '#fff' }} />
+                                    <Box sx={{ width: 60, height: 6, bgcolor: '#138808', borderRadius: '0 3px 3px 0' }} />
+                                </Box>
+                            </Grid>
+                            <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+                                <img
+                                    src="/images/arts/service.png"
+                                    alt="Service Art"
+                                    style={{
+                                        maxWidth: '100%',
+                                        height: 'auto',
+                                        maxHeight: '700px',
+                                        objectFit: 'contain',
+                                        filter: 'drop-shadow(0px 4px 10px rgba(0,0,0,0.2))',
+                                        borderRadius: '5px'
+                                    }}
+                                />
+                            </Grid>
+                        </Grid>
                     </Box>
                 </Container>
             </Box>

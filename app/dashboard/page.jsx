@@ -25,6 +25,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PendingIcon from '@mui/icons-material/Pending';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import StarIcon from '@mui/icons-material/Star';
+import EditIcon from '@mui/icons-material/Edit';
 
 export default function Dashboard() {
     const [user, setUser] = useState(null);
@@ -76,12 +77,12 @@ export default function Dashboard() {
     ];
 
     const quickActions = [
-        { label: 'Pay Property Tax', icon: <HomeWorkIcon />, color: '#1a4e8e', href: '/under-construction' },
-        { label: 'Pay Water Bill', icon: <WaterDropIcon />, color: '#0288d1', href: '/under-construction' },
+        { label: 'Pay Property Tax', icon: <HomeWorkIcon />, color: '#1a4e8e', href: '/services/property-tax' },
+        { label: 'Pay Water Bill', icon: <WaterDropIcon />, color: '#0288d1', href: '/services/water-bill' },
         { label: 'File Grievance', icon: <ReportProblemIcon />, color: '#d32f2f', href: '/services' },
-        { label: 'Birth Certificate', icon: <DescriptionIcon />, color: '#388e3c', href: '/under-construction' },
-        { label: 'Track Application', icon: <AssignmentIcon />, color: '#7b1fa2', href: '/dashboard' },
-        { label: 'Download Receipt', icon: <PaymentIcon />, color: '#FF9933', href: '/under-construction' },
+        { label: 'Birth Certificate', icon: <DescriptionIcon />, color: '#388e3c', href: '/services/birth-certificate' },
+        { label: 'Track Application', icon: <AssignmentIcon />, color: '#7b1fa2', href: '/services/track-application' },
+        { label: 'Download Receipt', icon: <PaymentIcon />, color: '#FF9933', href: '/services/download-receipt' },
     ];
 
     return (
@@ -109,13 +110,32 @@ export default function Dashboard() {
                             </Box>
                         </Grid>
                         <Grid item xs={12} md={4}>
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, bgcolor: 'rgba(255,255,255,0.1)', p: 1.5, borderRadius: 1 }}>
+                            <Box
+                                component={Link}
+                                href="/profile"
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 2,
+                                    bgcolor: 'rgba(255,255,255,0.1)',
+                                    p: 1.5,
+                                    borderRadius: 1,
+                                    textDecoration: 'none',
+                                    color: 'inherit',
+                                    cursor: 'pointer',
+                                    transition: '0.3s',
+                                    '&:hover': {
+                                        bgcolor: 'rgba(255,255,255,0.2)',
+                                        transform: 'scale(1.02)'
+                                    }
+                                }}
+                            >
                                 <Avatar sx={{ width: 50, height: 50, bgcolor: '#FF9933', fontSize: '1.5rem' }}>
-                                    {user.name.charAt(0)}
+                                    {user?.name?.charAt(0) || 'U'}
                                 </Avatar>
                                 <Box sx={{ flexGrow: 1 }}>
-                                    <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>{user.name}</Typography>
-                                    <Typography variant="caption" sx={{ opacity: 0.8 }}>Ward No: {user.ward}</Typography>
+                                    <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>{user?.name || 'User'}</Typography>
+                                    <Typography variant="caption" sx={{ opacity: 0.8 }}>Ward No: {user?.ward || 'N/A'}</Typography>
                                 </Box>
                                 <Chip
                                     icon={<VerifiedIcon sx={{ color: '#fff !important' }} />}
@@ -164,17 +184,44 @@ export default function Dashboard() {
                     <Grid item xs={12} md={3}>
 
                         {/* Profile Card */}
-                        <Paper sx={{ overflow: 'hidden', mb: 3, borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
-                            <Box sx={{ bgcolor: '#1a4e8e', p: 2, color: '#fff', display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <Paper sx={{ overflow: 'hidden', mb: 3, borderRadius: 0, boxShadow: 3, border: '1px solid #ddd', transition: '0.3s', '&:hover': { boxShadow: 6 } }}>
+                            <Box
+                                component={Link}
+                                href="/profile"
+                                sx={{
+                                    bgcolor: '#1a4e8e',
+                                    p: 2,
+                                    color: '#fff',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 1,
+                                    textDecoration: 'none',
+                                    cursor: 'pointer',
+                                    '&:hover': {
+                                        bgcolor: '#0d2e5a'
+                                    }
+                                }}
+                            >
                                 <PersonIcon />
                                 <Typography variant="h6" sx={{ fontWeight: 'bold' }}>My Profile</Typography>
+                                <EditIcon sx={{ ml: 'auto', fontSize: '1rem' }} />
                             </Box>
                             <CardContent sx={{ textAlign: 'center' }}>
-                                <Avatar sx={{ width: 80, height: 80, margin: '0 auto', bgcolor: '#FF9933', fontSize: '2rem', boxShadow: 3 }}>
-                                    {user.name.charAt(0)}
-                                </Avatar>
-                                <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold', color: '#1a4e8e' }}>{user.name}</Typography>
-                                <Chip label={`Ward ${user.ward}`} size="small" sx={{ mt: 1, bgcolor: '#e8f4fc', color: '#1a4e8e', fontWeight: 'bold' }} />
+                                <Box
+                                    component={Link}
+                                    href="/profile"
+                                    sx={{
+                                        display: 'block',
+                                        textDecoration: 'none',
+                                        color: 'inherit'
+                                    }}
+                                >
+                                    <Avatar sx={{ width: 80, height: 80, margin: '0 auto', bgcolor: '#FF9933', fontSize: '2rem', boxShadow: 3 }}>
+                                        {user?.name?.charAt(0) || 'U'}
+                                    </Avatar>
+                                    <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold', color: '#1a4e8e' }}>{user?.name || 'User'}</Typography>
+                                    <Chip label={`Ward ${user?.ward || 'N/A'}`} size="small" sx={{ mt: 1, bgcolor: '#e8f4fc', color: '#1a4e8e', fontWeight: 'bold' }} />
+                                </Box>
 
                                 <Divider sx={{ my: 2 }} />
 
@@ -208,6 +255,26 @@ export default function Dashboard() {
                                         </Box>
                                     </Grid>
                                 </Grid>
+
+                                <Divider sx={{ my: 2 }} />
+
+                                <Button
+                                    component={Link}
+                                    href="/profile"
+                                    variant="contained"
+                                    fullWidth
+                                    startIcon={<EditIcon />}
+                                    sx={{
+                                        bgcolor: '#1a4e8e',
+                                        color: '#fff',
+                                        fontWeight: 'bold',
+                                        '&:hover': {
+                                            bgcolor: '#0d2e5a'
+                                        }
+                                    }}
+                                >
+                                    Edit Profile
+                                </Button>
                             </CardContent>
                         </Paper>
 
@@ -392,7 +459,7 @@ export default function Dashboard() {
                         <Paper sx={{ overflow: 'hidden', mb: 3, borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
                             <Box sx={{ bgcolor: '#FF9933', p: 2, color: '#000', display: 'flex', alignItems: 'center', gap: 1 }}>
                                 <TrendingUpIcon />
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Ward {user.ward} Performance</Typography>
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Ward {user?.ward || 'N/A'} Performance</Typography>
                             </Box>
                             <Box sx={{ p: 2 }}>
                                 {[

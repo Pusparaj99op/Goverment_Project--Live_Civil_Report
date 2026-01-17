@@ -1,6 +1,9 @@
 import './globals.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import dynamic from 'next/dynamic'
+
+const ChatWidget = dynamic(() => import('../components/ChatWidget'), { ssr: false })
 
 export const metadata = {
     title: 'Majha Umred - National E-Governance Platform',
@@ -24,7 +27,9 @@ export default function RootLayout({ children }) {
                     </main>
                     <Footer />
                 </div>
+                <ChatWidget />
             </body>
         </html>
     )
 }
+

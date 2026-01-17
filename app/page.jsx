@@ -16,6 +16,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import StarIcon from '@mui/icons-material/Star';
+import MainCarousel from './components/MainCarousel';
 
 export default function Home() {
     // Quick Links with proper routes
@@ -66,13 +67,7 @@ export default function Home() {
         { text: 'Nagpur District', href: 'https://nagpur.gov.in', external: true },
     ];
 
-    // Key Statistics
-    const statistics = [
-        { number: '13', label: 'Wards', color: '#1a4e8e' },
-        { number: '52K+', label: 'Citizens', color: '#138808' },
-        { number: '1000+', label: 'Cases/Month', color: '#FF9933' },
-        { number: '24x7', label: 'Service', color: '#b71c1c' },
-    ];
+
 
     return (
         <div className="flex flex-col">
@@ -190,28 +185,20 @@ export default function Home() {
 
                         {/* Right Section - Stats Cards */}
                         <Grid item xs={12} md={5}>
-                            <Grid container spacing={2}>
-                                {statistics.map((stat, i) => (
-                                    <Grid item xs={6} key={i}>
-                                        <Paper sx={{
-                                            p: 2,
-                                            textAlign: 'center',
-                                            bgcolor: 'rgba(255,255,255,0.95)',
-                                            borderRadius: 2,
-                                            boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-                                            transition: 'transform 0.2s',
-                                            '&:hover': { transform: 'translateY(-4px)' }
-                                        }}>
-                                            <Typography variant="h3" sx={{ fontWeight: 'bold', color: stat.color, fontSize: { xs: '1.8rem', md: '2.5rem' } }}>
-                                                {stat.number}
-                                            </Typography>
-                                            <Typography variant="body2" sx={{ color: '#666', fontWeight: 500 }}>
-                                                {stat.label}
-                                            </Typography>
-                                        </Paper>
-                                    </Grid>
-                                ))}
-                            </Grid>
+                            <Box sx={{ mb: 2, display: 'flex', justifyContent: 'center', width: '100%' }}>
+                                <img
+                                    src="/images/arts/homeart.png"
+                                    alt="Home Art"
+                                    style={{
+                                        maxWidth: '100%',
+                                        height: 'auto',
+                                        maxHeight: '500px',
+                                        objectFit: 'contain',
+                                        filter: 'drop-shadow(0px 4px 10px rgba(0,0,0,0.2))',
+                                        borderRadius: '5px'
+                                    }}
+                                />
+                            </Box>
 
                             {/* Quick Contact */}
                             <Paper sx={{ mt: 2, p: 2, bgcolor: 'rgba(255,255,255,0.1)', borderRadius: 2, border: '1px solid rgba(255,255,255,0.2)' }}>
@@ -443,6 +430,9 @@ export default function Home() {
 
                     {/* Center - Main Content */}
                     <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
+
+                        {/* Main Carousel */}
+                        <MainCarousel />
 
                         {/* Civic Services */}
                         <Paper sx={{ mb: 3, overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
